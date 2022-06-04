@@ -1,6 +1,5 @@
-pytorch
+torch >=1.3.*
 higher
 numpy
 setuptools
-sphinx_autodoc_typehints
 typing
