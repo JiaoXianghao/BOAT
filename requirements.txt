@@ -1,0 +1,6 @@
+pytorch
+higher
+numpy
+setuptools
+sphinx_autodoc_typehints
+typing
