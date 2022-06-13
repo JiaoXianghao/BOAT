@@ -1,0 +1,37 @@
+coverage:
+  status:
+    project:
+      default:
+        # basic
+        target: auto
+        threshold: 0.2
+        base: auto 
+        # advanced
+        branches: null
+        if_no_uploads: error
+        if_not_found: success
+        if_ci_failed: error
+        only_pulls: false
+        flags: null
+        paths: null
+    patch:
+      default:
+        # basic
+        target: auto
+        threshold: 0.2
+        base: auto 
+        # advanced
+        branches: null
+        if_no_uploads: error
+        if_not_found: success
+        if_ci_failed: error
+        only_pulls: false
+        flags: null
+        paths: null
+        
+ignore:
+    # ignore the base classes which will be automatically inherited.
+  - "bolv/ll_optimize/ll_optimizer.py"
+  - "bolv/ul_optimize/ul_optimizer.py"
+  - "bolv/utils/utils.py.py"
+  - "test_script/utils.py"
