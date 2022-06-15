@@ -4,7 +4,7 @@ import bolv
 import torch
 from torch import nn
 import numpy as np
-from tests.utils import ll_o, ul_o
+from test_script.utils import ll_o, ul_o
 
 torch.manual_seed(123)
 

@@ -2,7 +2,7 @@ import pytest
 
 import bolv
 import torch
-from tests.utils import inner_o, outer_o
+from test_script.utils import inner_o, outer_o
 
 torch.manual_seed(123)
 

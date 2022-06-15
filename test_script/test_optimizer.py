@@ -5,7 +5,7 @@ from torch import nn
 
 import bolv.optimizer
 
-from tests.utils import ll_o, ul_o, inner_o, outer_o
+from test_script.utils import ll_o, ul_o, inner_o, outer_o
 
 GNAME = "errors-warnings"
 
