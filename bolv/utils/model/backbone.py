@@ -19,7 +19,8 @@ class Conv(nn.Module):
             max_padding=0,
             use_batch_norm=True,
             use_head=True,
-            activation=nn.ReLU
+            activation=nn.ReLU,
+            device=torch.device("cpu")
     ):
         super(Conv, self).__init__()
         self._input_shape = input_shape
@@ -27,6 +28,7 @@ class Conv(nn.Module):
         self._num_classes = ways
         self._num_stages = num_stages
         self._num_filters = num_filters
+        self.device = device
 
         self._use_head = use_head
 
@@ -52,7 +54,7 @@ class Conv(nn.Module):
         for idx in range(1, self._num_stages+1):
             conv = ConvBlock(input_channels=nin, output_channels=self._num_filters, kernel_size=kernel_size,
                              stride=stride, padding=padding, use_batch_norm=batch_norm, use_max_pool=max_pool,
-                             max_padding=max_padding, activation=activation)
+                             max_padding=max_padding, activation=activation, device=self.device)
             setattr(self, 'block{}'.format(idx), conv)
             x = conv(x)
             nin = self._num_filters
@@ -96,13 +98,15 @@ class Res12(nn.Module):
             self,
             input_shape: List[int],
             ways: int,
-            use_head: bool = True
+            use_head: bool = True,
+            device=torch.device("cpu")
     ):
         super(Res12, self).__init__()
         self._input_shape = input_shape
         self._output_shape = None
         self._num_classes = ways
         self._num_stages = 4
+        self.device = device
 
         self.create_model(use_head)
 
@@ -115,7 +119,8 @@ class Res12(nn.Module):
         maxpool = [True, True, True, False]
         for idx in range(len(num_chn)):
             res = ResBlock(input_channels=nin, num_filters=num_chn[idx], max_pool=maxpool[idx],
-                           max_padding=max_padding[idx], normalization=True, use_bias=False)
+                           max_padding=max_padding[idx], normalization=True, use_bias=False,
+                           device=self.device)
             setattr(self, 'block{}'.format(idx+1), res)
             x = res(x)
             nin = num_chn[idx]
@@ -152,7 +157,7 @@ class Res12(nn.Module):
 class ConvBlock(nn.Module):
     def __init__(self, input_channels, output_channels, kernel_size=3, stride=1, padding=1, use_bias=True,
                  use_batch_norm=True, use_max_pool=True, max_padding=0, use_activation=True,
-                 activation=nn.ReLU):
+                 activation=nn.ReLU, device=torch.device("cpu")):
         """
            Initializes a BatchNorm->Conv->ReLU layer which applies those operation in that order.
            :param normalization: The type of normalization to use 'use_batch_norm' or 'layer_norm'
@@ -164,6 +169,7 @@ class ConvBlock(nn.Module):
            :param normalization: whether use batch-norm in this layer
         """
         super(ConvBlock, self).__init__()
+        self.device = device
 
         self.conv = nn.Conv2d(input_channels, output_channels, (kernel_size, kernel_size), padding=padding,
                               stride=(stride, stride), bias=use_bias)
@@ -189,8 +195,8 @@ class ConvBlock(nn.Module):
             x = F.conv2d(x, next(params), next(params), stride=1, padding=1)
             x = F.relu(x, inplace=True) if self.activation is not None else x
             x = F.max_pool2d(x, 2) if self.max_pool is not None else x
-            x = F.batch_norm(x, torch.zeros(np.prod(np.array(x.data.size()[1]))).cuda(),
-                             torch.ones(np.prod(np.array(x.data.size()[1]))).cuda(),
+            x = F.batch_norm(x, torch.zeros(np.prod(np.array(x.data.size()[1]))).to(self.device),
+                             torch.ones(np.prod(np.array(x.data.size()[1]))).to(self.device),
                              next(params), next(params), training=True, momentum=1)\
                 if self.norm is not None else x
 
@@ -198,7 +204,8 @@ class ConvBlock(nn.Module):
 
 
 class ResBlock(nn.Module):
-    def __init__(self, input_channels, num_filters, max_pool, max_padding, normalization=True, use_bias=False):
+    def __init__(self, input_channels, num_filters, max_pool, max_padding, normalization=True, use_bias=False,
+                 device=torch.device("cpu")):
         """
 
         Parameters
@@ -213,6 +220,7 @@ class ResBlock(nn.Module):
            :param normalization: whether use batch-norm in this layer
         """
         super(ResBlock, self).__init__()
+        self.device = device
 
         self.conv1 = ConvBlock(input_channels, num_filters, kernel_size=3, padding=1, stride=1, use_bias=use_bias,
                                use_max_pool=False, use_batch_norm=normalization)

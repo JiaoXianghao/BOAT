@@ -1,5 +1,5 @@
 import torch
-from .ul_optimizer import UpperGrad
+from .ul_optimizer import ULGrad
 from torch.autograd import grad as torch_grad
 
 from torch.nn import Module
@@ -9,7 +9,7 @@ from higher.patch import _MonkeyPatchBase
 from bolv.utils.utils import update_grads
 
 
-class LS(UpperGrad):
+class LS(ULGrad):
     r"""Calculation of the gradient of the upper adapt_model variables with Implicit Gradient Based Methods.
 
     Implements the UL problem optimization procedure of two implicit gradient

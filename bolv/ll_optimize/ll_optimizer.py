@@ -1,7 +1,7 @@
 import abc
 
 
-class LowerOptimize(object):
+class LLOptimize(object):
     def __init__(
             self,
             ll_objective,

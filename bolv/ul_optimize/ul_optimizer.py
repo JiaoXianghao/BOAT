@@ -2,7 +2,7 @@ import torch
 from abc import abstractmethod
 
 
-class UpperGrad(object):
+class ULGrad(object):
     def __init__(self, ul_objective, ul_model, ll_model):
         self.ul_objective = ul_objective
         self.ul_model = ul_model

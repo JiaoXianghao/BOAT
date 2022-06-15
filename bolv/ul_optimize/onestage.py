@@ -1,5 +1,5 @@
 import torch
-from bolv.ul_optimize.ul_optimizer import UpperGrad
+from bolv.ul_optimize.ul_optimizer import ULGrad
 from ..utils.utils import update_grads
 
 from torch.nn import Module
@@ -8,7 +8,7 @@ from typing import Callable
 from higher.patch import _MonkeyPatchBase
 
 
-class Onestage(UpperGrad):
+class Onestage(ULGrad):
     r"""Calculation of the gradient of the upper adapt_model variables with DARTS method
 
     Implements the UL optimization procedure of DARTS _`[1]`_, a first order approximation

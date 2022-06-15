@@ -94,7 +94,7 @@ class MetaModel(nn.Module):
         # L2F method setting
         self.use_forget = use_forget
         self.attenuate_bn_params = enable_inner_loop_optimizable_bn_params
-        self.meta_attenuator = self.get_mlp_attenuator() if use_forget else None
+        self.attenuator = self.get_mlp_attenuator() if use_forget else None
 
     def forward(
             self,
@@ -183,7 +183,7 @@ class MetaModel(nn.Module):
         for i in range(len(grads)):
             layerwise_mean_grads.append(grads[i].mean())
         layerwise_mean_grads = torch.stack(layerwise_mean_grads)
-        gamma = self.meta_attenuator(layerwise_mean_grads)
+        gamma = self.attenuator(layerwise_mean_grads)
 
         gamma = iter(gamma)
         for name, param in self.adapt_model.named_parameters():

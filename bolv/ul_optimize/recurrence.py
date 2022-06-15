@@ -1,5 +1,5 @@
 import torch
-from .ul_optimizer import UpperGrad
+from .ul_optimizer import ULGrad
 from ..utils.utils import update_grads
 
 from torch.nn import Module
@@ -8,7 +8,7 @@ from typing import Callable
 from higher.patch import _MonkeyPatchBase
 
 
-class Recurrence(UpperGrad):
+class Recurrence(ULGrad):
     r"""UL Variable Gradients Calculation with Reverse-mode AD
 
     Implements the UL optimization procedure with Reverse-mode Auto Diff method_`[1]`_.

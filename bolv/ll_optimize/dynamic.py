@@ -1,4 +1,4 @@
-from .ll_optimizer import LowerOptimize
+from .ll_optimizer import LLOptimize
 
 from torch.nn import Module
 from torch.optim import Optimizer
@@ -8,7 +8,7 @@ from higher.patch import _MonkeyPatchBase
 from higher.optim import DifferentiableOptimizer
 
 
-class Dynamic(LowerOptimize):
+class Dynamic(LLOptimize):
     r"""Lower adapt_model optimization procedure
 
     Implements the LL problem optimization procedure of two explicit gradient

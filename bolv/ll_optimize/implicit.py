@@ -1,4 +1,4 @@
-from .ll_optimizer import LowerOptimize
+from .ll_optimizer import LLOptimize
 
 from torch.nn import Module
 from torch import Tensor
@@ -7,7 +7,7 @@ from higher.patch import _MonkeyPatchBase
 from higher.optim import DifferentiableOptimizer
 
 
-class Implicit(LowerOptimize):
+class Implicit(LLOptimize):
     r"""Lower level model optimization procedure
 
     Implement the LL model update process.

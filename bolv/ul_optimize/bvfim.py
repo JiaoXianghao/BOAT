@@ -1,5 +1,5 @@
 import torch
-from .ul_optimizer import UpperGrad
+from .ul_optimizer import ULGrad
 from bolv.utils.utils import loss_L2
 from ..utils.utils import update_grads
 
@@ -8,7 +8,7 @@ from torch import Tensor
 from typing import Callable
 
 
-class BVFIM(UpperGrad):
+class BVFIM(ULGrad):
     r"""Calculation of the gradient of the upper adapt_model variables with BVFIM method
 
         Implements the UL optimization procedure of  Value-Function Best-

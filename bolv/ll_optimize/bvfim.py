@@ -1,5 +1,5 @@
 from ..utils.utils import loss_L2
-from .ll_optimizer import LowerOptimize
+from .ll_optimizer import LLOptimize
 from ..utils.utils import update_grads
 
 import torch
@@ -10,7 +10,7 @@ from typing import Callable
 import copy
 
 
-class BVFIM(LowerOptimize):
+class BVFIM(LLOptimize):
     r"""Lower adapt_model optimization procedure of Value-Function-based Interior-point Method
 
     Implements the LL problem optimization procedure of Value-Function Best-
