@@ -37,7 +37,7 @@ jobs:
           pip install matplotlib
           pip install -e .[umap] codecov mypy pytest-cov black
       - name: pytest
-        run: pytest --cov=solo test_script
+        run: pytest --cov=bolv test_script
 
       - name: Statistics
         if: success()
