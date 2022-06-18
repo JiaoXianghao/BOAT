@@ -18,6 +18,16 @@ def ul_o(data, target, ul_model, ll_model):
     return loss_F
 
 
+def ul_o_iapttgm(data, target, ul_model, ll_model, time=-1):
+    if time > 0:
+        out_F = ll_model(ul_model(data), params=ll_model.parameters(time=time))
+        loss_F = F.cross_entropy(out_F, target)
+    else:
+        out_F = ll_model(ul_model(data))
+        loss_F = F.cross_entropy(out_F, target)
+    return loss_F
+
+
 def inner_o(data, target, model, params):
     return F.cross_entropy(model(data, params), target)
 

@@ -4,7 +4,7 @@ import bolv
 import torch
 from torch import nn
 import numpy as np
-from test_script.utils import ll_o, ul_o
+from test_script.utils import ll_o, ul_o, ul_o_iapttgm
 
 torch.manual_seed(123)
 
@@ -54,7 +54,7 @@ class TestSystemFeature:
 
         optimizer = bolv.optimizer.BOLVOptimizer(
             method, ll_method=ll_method, ul_method=ul_method,
-            ll_objective=ll_o, ul_objective=ul_o,
+            ll_objective=ll_o, ul_objective=ul_o_iapttgm if truncate_max_loss_iter else ul_o,
             ll_model=ll_model, ul_model=ul_model)
         optimizer.build_ll_solver(1 if ul_method == 'Onestage' else 5, ll_opt, truncate_iter=truncate_iter,
                                   truncate_max_loss_iter=truncate_max_loss_iter, alpha_init=alpha_init,
@@ -106,7 +106,7 @@ class TestSystemFeature:
 
         optimizer = bolv.optimizer.BOLVOptimizer(
             method, ll_method=ll_method, ul_method=ul_method,
-            ll_objective=ll_o, ul_objective=ul_o,
+            ll_objective=ll_o, ul_objective=ul_o_iapttgm if truncate_max_loss_iter else ul_o,
             ll_model=ll_model, ul_model=ul_model)
         optimizer.build_ll_solver(1 if ul_method == 'Onestage' else 5, ll_opt)
         optimizer.build_ul_solver(ul_opt)
