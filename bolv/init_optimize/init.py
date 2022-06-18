@@ -213,24 +213,24 @@ class Init(object):
         outer_loss.backward()
 
         return outer_loss
-
-
-def forward(x, params):
-    for i in range(1, 5):
-        x = F.conv2d(x, params[4 * (i - 1)], params[4 * (i - 1) + 1], stride=1, padding=1)
-
-        x = F.relu(x, inplace=True)
-        x = F.batch_norm(x, torch.zeros(np.prod(np.array(x.data.size()[1]))).cuda(),
-                         torch.ones(np.prod(np.array(x.data.size()[1]))).cuda(),
-                         params[4 * (i - 1) + 2], params[4 * (i - 1) + 3], training=True, momentum=1)
-        x = F.max_pool2d(x, 2)
-
-    flatten = nn.Flatten()
-    x = flatten(x)
-    x = F.linear(x, params[16], params[17])
-    return x
-
-
-def acc(out, target):
-    pred = out.argmax(dim=1, keepdim=True)
-    return pred.eq(target.view_as(pred)).sum().item() / len(target)
+#
+#
+# def forward(x, params):
+#     for i in range(1, 5):
+#         x = F.conv2d(x, params[4 * (i - 1)], params[4 * (i - 1) + 1], stride=1, padding=1)
+#
+#         x = F.relu(x, inplace=True)
+#         x = F.batch_norm(x, torch.zeros(np.prod(np.array(x.data.size()[1]))).cuda(),
+#                          torch.ones(np.prod(np.array(x.data.size()[1]))).cuda(),
+#                          params[4 * (i - 1) + 2], params[4 * (i - 1) + 3], training=True, momentum=1)
+#         x = F.max_pool2d(x, 2)
+#
+#     flatten = nn.Flatten()
+#     x = flatten(x)
+#     x = F.linear(x, params[16], params[17])
+#     return x
+#
+#
+# def acc(out, target):
+#     pred = out.argmax(dim=1, keepdim=True)
+#     return pred.eq(target.view_as(pred)).sum().item() / len(target)
