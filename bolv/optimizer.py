@@ -13,29 +13,29 @@ from torch.nn import Module
 from torch.nn.parameter import Parameter
 from torch.optim import Optimizer
 from bolv.utils.model.meta_model import MetaModel
-from bolv.utils.utils import accuary
+from bolv.utils.utils import initialize
 
 importlib = __import__("importlib")
 ll_grads = importlib.import_module("bolv.ll_optimize")
 ul_grads = importlib.import_module("bolv.ul_optimize")
 
 
-def initialize(model):
-    for m in model.modules():
-        if isinstance(m, nn.Conv2d):
-            n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
-            m.weight.data.normal_(0, math.sqrt(2. / n))
-            # m.weight.data.fill_(1)
-            if m.bias is not None:
-                m.bias.data.zero_()
-        elif isinstance(m, nn.BatchNorm2d):
-            m.weight.data.fill_(1)
-            m.bias.data.zero_()
-        elif isinstance(m, nn.Linear):
-            # m.weight.data.zero_()
-            m.weight.data.normal_(0, 0.01)
-            # m.weight.data.fill_(0.5)
-            m.bias.data.zero_()
+# def initialize(model):
+#     for m in model.modules():
+#         if isinstance(m, nn.Conv2d):
+#             n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+#             m.weight.data.normal_(0, math.sqrt(2. / n))
+#             # m.weight.data.fill_(1)
+#             if m.bias is not None:
+#                 m.bias.data.zero_()
+#         elif isinstance(m, nn.BatchNorm2d):
+#             m.weight.data.fill_(1)
+#             m.bias.data.zero_()
+#         elif isinstance(m, nn.Linear):
+#             # m.weight.data.zero_()
+#             m.weight.data.normal_(0, 0.01)
+#             # m.weight.data.fill_(0.5)
+#             m.bias.data.zero_()
 
 
 class BOLVOptimizer(object):
