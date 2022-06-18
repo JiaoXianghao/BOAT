@@ -22,6 +22,7 @@ class TestSystemFeature:
             ("Feature", "Dynamic", "Recurrence", ll_o, ul_o, 0, False, 0.0, 0.0, True),
             ("Feature", "Dynamic", "Recurrence", ll_o, ul_o, 0, True, 0.0, 0.0, True),
             ("Feature", "Dynamic", "Recurrence", ll_o, ul_o, 1, False, 0.0, 0.0, False),
+            ("Feature", "Dynamic", "Recurrence", ll_o, ul_o, 1, False, 0.1, 0.5, False),
             ("Feature", "Dynamic", "Recurrence", ll_o, ul_o, 1, False, 0.0, 0.0, True),
             ("Feature", "Dynamic", "Recurrence", ll_o, ul_o, 0, False, 0.1, 0.5, False),
             ("Feature", "Dynamic", "Recurrence", ll_o, ul_o, 0, True, 0.1, 0.5, False),
@@ -56,14 +57,15 @@ class TestSystemFeature:
             ll_objective=ll_o, ul_objective=ul_o,
             ll_model=ll_model, ul_model=ul_model)
         optimizer.build_ll_solver(1 if ul_method == 'Onestage' else 5, ll_opt, truncate_iter=truncate_iter,
-                                  alpha_init=alpha_init, alpha_decay=alpha_decay)
+                                  truncate_max_loss_iter=truncate_max_loss_iter, alpha_init=alpha_init,
+                                  alpha_decay=alpha_decay)
         optimizer.build_ul_solver(ul_opt, update_ll_model_init)
 
         for iter in range(5):
             val_loss, forward_time, backward_time = optimizer.run_iter(tr_xs, tr_ys, tst_xs, tst_ys,
                                                                        iter, forward_with_whole_batch=False)
 
-    
+
     @pytest.mark.parametrize(
         "method, ll_method, ul_method, ll_objective, ul_objective, truncate_iter,"
         "truncate_max_loss_iter, alpha_init, alpha_decay, update_ll_model_init",
