@@ -2,7 +2,7 @@
 # BOLV - A Bilevel Optimization Toolkit in Python for Learning and Vision Tasks
 [![PyPI version](https://badge.fury.io/py/boml.svg)](https://badge.fury.io/py/boml)
 [![tests](https://github.com/JiaoXianghao/BOLV/actions/workflows/test.yml/badge.svg)](https://github.com/JiaoXianghao/BOLV/actions/workflows/test.yml)[![codecov](https://codecov.io/gh/JiaoXianghao/BOLV/branch/main/graph/badge.svg?token=8Y3OK2WPDE)](https://codecov.io/gh/JiaoXianghao/BOLV)
-[![Documentation Status](https://readthedocs.org/projects/boml/badge/?version=latest)](https://boml.readthedocs.io/en/latest/?badge=latest)
+[![pages-build-deployment](https://github.com/JiaoXianghao/bolv.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/JiaoXianghao/bolv.github.io/actions/workflows/pages/pages-build-deployment)
 ![Language](https://img.shields.io/github/languages/top/dut-media-lab/boml?logoColor=green)
 ![Python version](https://img.shields.io/pypi/pyversions/boml)
 ![license](https://img.shields.io/badge/license-MIT-000000.svg)
