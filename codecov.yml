@@ -31,7 +31,7 @@ coverage:
         
 ignore:
     # ignore the base classes which will be automatically inherited.
-  - "bolv/ll_optimize/ll_optimizer.py"
-  - "bolv/ul_optimize/ul_optimizer.py"
-  - "bolv/utils/utils.py.py"
+  - "bohml/ll_optimize/ll_optimizer.py"
+  - "bohml/ul_optimize/ul_optimizer.py"
+  - "bohml/utils/utils.py.py"
   - "test_script/utils.py"
