@@ -1,6 +1,6 @@
 import pytest
 
-import bolv
+import bohml
 import torch
 from test_script.utils import inner_o, outer_o
 
@@ -25,13 +25,13 @@ class TestSystemFeature:
         ],
     )
     def test_few_shot(self, learn_lr, use_t, use_warp, use_forget):
-        backbone_model = bolv.utils.model.backbone.Conv([5, 3, 84, 84], 5, num_filters=32, use_head=True)
-        meta_model = bolv.utils.model.MetaModel(backbone_model, learn_lr=learn_lr, use_t=use_t,
-                                                use_warp=use_warp, use_forget=use_forget)
+        backbone_model = bohml.utils.model.backbone.Conv([5, 3, 84, 84], 5, num_filters=32, use_head=True)
+        meta_model = bohml.utils.model.MetaModel(backbone_model, learn_lr=learn_lr, use_t=use_t,
+                                                 use_warp=use_warp, use_forget=use_forget)
         outer_opt = torch.optim.Adam(meta_model.parameters())
 
-        optimizer = bolv.optimizer.BOLVOptimizer("Initial", inner_objective=inner_o,
-                                                 outer_objective=outer_o, meta_model=meta_model)
+        optimizer = bohml.optimizer.BOHMLOptimizer("Initial", inner_objective=inner_o,
+                                                   outer_objective=outer_o, meta_model=meta_model)
         optimizer.build_meta_solver(outer_opt, 3, inner_learning_rate=0.01, learn_lr=learn_lr, use_t=use_t,
                                     use_warp=use_warp, use_forget=use_forget)
 
@@ -58,13 +58,13 @@ class TestSystemFeature:
         ],
     )
     def test_regular(self, learn_lr, use_t, use_warp, use_forget):
-        backbone_model = bolv.utils.model.backbone.Conv([32, 3, 84, 84], 8, num_filters=32, use_head=True)
-        meta_model = bolv.utils.model.MetaModel(backbone_model, learn_lr=learn_lr, use_t=use_t,
-                                                use_warp=use_warp, use_forget=use_forget)
+        backbone_model = bohml.utils.model.backbone.Conv([32, 3, 84, 84], 8, num_filters=32, use_head=True)
+        meta_model = bohml.utils.model.MetaModel(backbone_model, learn_lr=learn_lr, use_t=use_t,
+                                                 use_warp=use_warp, use_forget=use_forget)
         outer_opt = torch.optim.Adam(meta_model.parameters())
 
-        optimizer = bolv.optimizer.BOLVOptimizer("Initial", inner_objective=inner_o,
-                                                 outer_objective=outer_o, meta_model=meta_model)
+        optimizer = bohml.optimizer.BOHMLOptimizer("Initial", inner_objective=inner_o,
+                                                   outer_objective=outer_o, meta_model=meta_model)
         optimizer.build_meta_solver(outer_opt, 3, inner_learning_rate=0.01, learn_lr=learn_lr, use_t=use_t,
                                     use_warp=use_warp, use_forget=use_forget)
 

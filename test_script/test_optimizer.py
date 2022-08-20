@@ -3,7 +3,7 @@ import pytest
 import torch
 from torch import nn
 
-import bolv.optimizer
+import bohml.optimizer
 
 from test_script.utils import ll_o, ul_o, inner_o, outer_o
 
@@ -46,26 +46,26 @@ class TestErrorsWarnings:
         with pytest.raises(AssertionError):
             ul_model = nn.Conv2d(3, 3, (3, 3))
             ll_model = nn.Conv2d(3, 3, (3, 3))
-            bolv.optimizer.BOLVOptimizer(method, ll_method, ul_method, ll_objective, ul_objective,
-                                         inner_objective, outer_objective, ll_model, ul_model, None)
+            bohml.optimizer.BOHMLOptimizer(method, ll_method, ul_method, ll_objective, ul_objective,
+                                           inner_objective, outer_objective, ll_model, ul_model, None)
 
     def test_bolvoptimizer_init_model_1(self):
         with pytest.raises(AssertionError):
             ll_model = nn.Conv2d(3, 3, (3, 3))
-            bolv.optimizer.BOLVOptimizer("Feature", "Dynamic", "Recurrence", ll_o, ul_o,
-                                         None, None, ll_model, None, None)
+            bohml.optimizer.BOHMLOptimizer("Feature", "Dynamic", "Recurrence", ll_o, ul_o,
+                                           None, None, ll_model, None, None)
 
     def test_bolvoptimizer_init_model_2(self):
         with pytest.raises(AssertionError):
             ul_model = nn.Conv2d(3, 3, (3, 3))
-            bolv.optimizer.BOLVOptimizer("Feature", "Dynamic", "Recurrence", ll_o, ul_o,
-                                         None, None, None, ul_model, None)
+            bohml.optimizer.BOHMLOptimizer("Feature", "Dynamic", "Recurrence", ll_o, ul_o,
+                                           None, None, None, ul_model, None)
 
     def test_bolvoptimizer_init_model_3(self):
         with pytest.raises(TypeError):
             meta_model = nn.Conv2d(3, 3, (3, 3))
-            bolv.optimizer.BOLVOptimizer("Initial", None, None, None, None,
-                                         inner_o, outer_o, None, None, meta_model)
+            bohml.optimizer.BOHMLOptimizer("Initial", None, None, None, None,
+                                           inner_o, outer_o, None, None, meta_model)
 
     @pytest.mark.parametrize(
         "ul_method, lower_loop, truncate_iter, "
@@ -87,8 +87,8 @@ class TestErrorsWarnings:
         with pytest.raises(AssertionError):
             ll_model = nn.Conv2d(3, 3, (3, 3))
             ul_model = nn.Conv2d(3, 3, (3, 3))
-            optimizer = bolv.optimizer.BOLVOptimizer("Feature", "Dynamic", ul_method, ll_o, ul_o,
-                                                     None, None, ll_model, ul_model, None)
+            optimizer = bohml.optimizer.BOHMLOptimizer("Feature", "Dynamic", ul_method, ll_o, ul_o,
+                                                       None, None, ll_model, ul_model, None)
             ll_opt = torch.optim.SGD(ll_model.parameters(), lr=0.01)
             optimizer.build_ll_solver(lower_loop, ll_opt, truncate_iter, truncate_max_loss_iter,
                                       alpha_init, alpha_decay)
@@ -104,8 +104,8 @@ class TestErrorsWarnings:
         with pytest.raises(AssertionError):
             ll_model = nn.Conv2d(3, 3, (3, 3))
             ul_model = nn.Conv2d(3, 3, (3, 3))
-            optimizer = bolv.optimizer.BOLVOptimizer("Feature", ll_method, ul_method, ll_o, ul_o,
-                                                     None, None, ll_model, ul_model, None)
+            optimizer = bohml.optimizer.BOHMLOptimizer("Feature", ll_method, ul_method, ll_o, ul_o,
+                                                       None, None, ll_model, ul_model, None)
             ll_opt = torch.optim.SGD(ll_model.parameters(), lr=0.01)
             optimizer.build_ll_solver(5, ll_opt)
             ul_opt = torch.optim.SGD(ul_model.parameters(), lr=0.001)
