@@ -1,0 +1,1286 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+    
+    
+      
+        <title>bolv.optimizer - BOLV</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#00bdd6">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="cyan" data-md-color-accent="pink">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#classbothoptimizer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BOLV" class="md-header__button md-logo" aria-label="BOLV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BOLV
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              bolv.optimizer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/setup/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../bolv.ll_optimize/LowerOptimize/" class="md-tabs__link md-tabs__link--active">
+        Documents
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../examples/methods/" class="md-tabs__link">
+        Examples
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BOLV" class="md-nav__button md-logo" aria-label="BOLV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    BOLV
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/setup/" class="md-nav__link">
+        setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/overview/" class="md-nav__link">
+        overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Documents
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documents" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documents
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          bolv.ll_optimize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bolv.ll_optimize" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          bolv.ll_optimize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ll_optimize/LowerOptimize/" class="md-nav__link">
+        LowerOptimize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ll_optimize/Dynamic/" class="md-nav__link">
+        Dynamic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ll_optimize/Implicit/" class="md-nav__link">
+        Implicit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ll_optimize/BVFIM/" class="md-nav__link">
+        BVFIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          bolv.ul_optimize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bolv.ul_optimize" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          bolv.ul_optimize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ul_optimize/UpperGrad/" class="md-nav__link">
+        UpperGrad
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ul_optimize/Recurrence/" class="md-nav__link">
+        Recurrence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ul_optimize/Onestage/" class="md-nav__link">
+        Onestage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ul_optimize/LS/" class="md-nav__link">
+        LS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ul_optimize/NS/" class="md-nav__link">
+        NS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ul_optimize/GN/" class="md-nav__link">
+        GN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.ul_optimize/BVFIM/" class="md-nav__link">
+        BVFIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.init_optimize/" class="md-nav__link">
+        bolv.meta_optimize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          bolv.optimizer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        bolv.optimizer
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          bolv.utils
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bolv.utils" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          bolv.utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1" type="checkbox" id="__nav_3_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_1">
+          bolv.model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bolv.model" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          bolv.model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.model/backbone/" class="md-nav__link">
+        bolv.model.backbone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bolv.model/meta_model/" class="md-nav__link">
+        bolv.model.meta_model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/methods/" class="md-nav__link">
+        methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/applications/" class="md-nav__link">
+        applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="classbothoptimizer"><strong>class&nbsp;&nbsp;BOTHOptimizer</strong></h1>
+<hr />
+<h2 id="description">Description</h2>
+<p>Wrapper for performing bi-level optimization and gradient-based initialization optimization</p>
+<p>BOTHOptimizer is the wrapper of Bi-Level Optimization(BLO) and Initialization Optimization(Initialization-based
+EGBR) process which builds LL, UL and Initialization problem solver with corresponding method modules
+and uses in training phase. The optimization process could also be done by using methods packages directly.</p>
+<hr />
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>
+<p><strong>method</strong>: str
+     Define basic method for following training process, it should be included in
+    ['Initial', 'Feature']. 'Initial' type refers to meta-learning optimization
+    strategy, including methods like 'MAML, FOMAML, TNet, WarpGrad, L2F'; 'Feature'
+    type refers to bi-level optimization strategy, includes methods like 'BDA, RHG,
+    Truncated RHG, Onestage, BVFIM, IAPTT-GM, LS, NS, GN, BVFIM'.</p>
+</li>
+<li>
+<p><strong>ll_method</strong>: str, default=None
+    method chosen for solving LL problem, including ['Dynamic' | 'Implicit' | 'BVFIM'].</p>
+</li>
+<li>
+<p><strong>ul_method</strong>: str, default=None
+    Method chosen for solving UL problem, including ['Recurrence','Onestage' | 'LS','NS',
+        'GN' | 'BVFIM'].</p>
+</li>
+<li>
+<p><strong>ll_objective</strong>: callable, default=None
+    An optimization problem which is considered as the constraint of UL problem.</p>
+<p>Callable with signature callable(state). Defined based on modeling of
+the specific problem that need to be solved. Computing the loss of ul
+problem. The state object contains the following:</p>
+<ul>
+<li>"data"
+    Data used in the LL optimization phase.</li>
+<li>"target"
+    Target used in the LL optimization phase.</li>
+<li>"ul_model"
+    UL model of the bi-level model structure.</li>
+<li>"ll_model"
+    LL model of the bi-level model structure.</li>
+</ul>
+</li>
+<li>
+<p><strong>ul_objective</strong>: callable, default=None
+    The main optimization problem in a hierarchical optimization problem.</p>
+<p>Callable with signature callable(state). Defined based on modeling of
+the specific problem that need to be solved. Computing the loss of ul
+problem. The state object contains the following:</p>
+<ul>
+<li>"data"
+    Data used in the UL optimization phase.</li>
+<li>"target"
+    Target used in the UL optimization phase.</li>
+<li>"ul_model"
+    Ul model of the bi-level model structure.</li>
+<li>"ll_model"
+    LL model of the bi-level model structure.</li>
+</ul>
+</li>
+<li>
+<p><strong>inner_objective</strong>: callable, default=None
+    The inner loop optimization objective.</p>
+<p>Callable with signature callable(state). Defined based on modeling of
+the specific problem that need to be solved. Computing the loss of inner
+objective. The state object contains the following:</p>
+<ul>
+<li>"data"
+    Data used in inner optimization phase.</li>
+<li>"target"
+    Target used in inner optimization phase.</li>
+<li>"model"
+    Meta model to be updated.</li>
+<li>"updated_weights"
+    Weights of model updated in inner-loop, will be used for forward propagation.</li>
+</ul>
+</li>
+<li>
+<p><strong>outer_objective</strong>: callable, default=None
+    The outer optimization objective.</p>
+<p>Callable with signature callable(state). Defined based on modeling of
+the specific problem that need to be solved. Computing the loss of outer
+objective. The state object contains the following:</p>
+<ul>
+<li>"data"
+    Data used in outer optimization phase.</li>
+<li>"target"
+    Target used in outer optimization phase.</li>
+<li>"model"
+    Meta model to be updated.</li>
+<li>"updated_weights"
+    Weights of model updated in inner-loop, will be used for forward propagation.</li>
+</ul>
+</li>
+<li>
+<p><strong>ll_model</strong>: Module, default=None
+    The model whose parameters will be updated during ul-level optimization.</p>
+</li>
+<li>
+<p><strong>ul_model</strong>: Module, default=None
+    ul model in a hierarchical model structure whose parameters will be
+    updated with ul objective.</p>
+</li>
+<li>
+<p><strong>meta_model</strong>: MetaModel, default=None
+    Model whose initial value will be optimized. If choose MAML method to optimize, any user-defined
+    torch nn.Module could be used as long as the definition of forward() function meets the standard;
+    but if choose other derived methods, internally defined both.utils.model.meta_model should be used
+    for related additional modules.</p>
+</li>
+<li>
+<p><strong>total_iters</strong>: int, default=60000
+    Total iterations of the experiment, used to set weight decay.</p>
+</li>
+</ul>
+<hr />
+<h2 id="methods">Methods</h2>
+<details class="important highlight blink">
+<summary>build_ll_problem_solver()</summary>
+<p>Build LL-problem solver with both.ll_optimizer module,
+which will optimize ll model for further using in ul optimization
+procedure. Setting the value of parameters according to the selected method.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p>lower_loop(int) - 
+    The total number of iterations for ll gradient descent optimization. It is 
+    also regarded as z_loop in BVFIM method.</p>
+</li>
+<li>
+<p>ll_optimizer(Optimizer) - 
+    Optimizer of ll model, defined outside this module and will be used
+    in LL optimization procedure.</p>
+</li>
+<li>
+<p>truncate_iter(int, default=0) - 
+    Specific parameter for Truncated Reverse AD method, defining number of
+    iterations to truncate in the back propagation process during ll
+    optimizing.</p>
+</li>
+<li>
+<p>acquire_max_loss_iter(bool, default=False) - 
+    Specific parameter for IAPTT-GM method,if set True then will use PTT method to truncate 
+    reverse trajectory during ll optimization.</p>
+</li>
+<li>
+<p>alpha_init(float, default=0.0) - 
+    Specify parameter for BDA method. The aggregation parameter for Bi-level descent
+    aggregation method, where alpha ∈ (0, 1) denotes the ratio of ll objective
+    to ul objective during ll optimizing.</p>
+</li>
+<li>
+<p>alpha_decay(float, default=0.0) - 
+    Specify parameter for BDA method. Weight decay coefficient of aggregation parameter alpha.
+    The decay rate will accumulate with ll optimization procedure.</p>
+</li>
+<li>
+<p>y_loop(int, default=5) - 
+    Specify parameter for BVFIM method. Num of steps to obtain a optimal ll variable under the
+    ll problem value obtained after z_loop, i.e. optimize the updated ll variable with ul
+     problem. Regarded as Regarded as <span class="arithmatex"><span class="MathJax_Preview">T_y</span><script type="math/tex">T_y</script></span> in the paper.</p>
+</li>
+<li>
+<p>ll_l2_reg(float, default=0.1) - 
+    Specify parameter for BVFIM method. Weight of L2 regularization term in the value
+    function of the regularizedLL problem. Referring to module both.ul_optimize.bvfim
+    for more details.</p>
+</li>
+<li>
+<p>ul_l2_reg(float, default=0.01) - 
+    Specify parameter for BVFIM method. Weight of L2 regularization term in the
+    value function of the regularized UL problem. Referring to module
+    both.ul_optimize.bvfim for more details.</p>
+</li>
+<li>
+<p>ul_ln_reg(float, default=10.) - 
+    Specify parameter for BVFIM method. Weight of the log-barrier penalty term in the
+    value function of the regularized UL problem. Referring to module both.ul_optimize.bvfim
+    for more details.</p>
+</li>
+<li>
+<p>reg_decay(bool, default=True) - 
+    Specify parameter for BVFIM method. Whether to use weight decay coefficient of
+     L2 regularization term and log-barrier penalty term.</p>
+</li>
+</ul>
+</details>
+<details class="important highlight blink">
+<summary>build_ul_problem_solver()</summary>
+<p>Setting up UL optimization module. Select desired method through given parameters
+and set related experiment parameters.</p>
+<p>Details of parameter settings for each particular method are available in the specific
+method module of both.ul_optimize.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p>ul_optimizer(Optimizer) - 
+    Optimizer of ul model, defined outside this module and will be used
+    in UL optimization procedure.</p>
+</li>
+<li>
+<p>update_ll_model_init(bool, default=False) - 
+    Specific parameter for Dynamic method. If set True, the initial value of ll model will be updated after this iteration.</p>
+</li>
+<li>
+<p>k(int, default=10) - 
+    Specific parameter for Implicit method. The maximum number of conjugate gradient iterations.</p>
+</li>
+<li>
+<p>tolerance(float, default=1e-10) - 
+    Specific parameter for Implicit method. End the method earlier when the norm of the
+    residual is less than tolerance.</p>
+</li>
+<li>
+<p>r(float, default=1e-2) - 
+    Parameter for One-stage RAD method and used to adjust scalar epsilon. Value 0.01 of r is
+    recommended for sufficiently accurate in the paper. Referring to module
+    both.ul_optimize.onestage for more details.</p>
+</li>
+<li>
+<p>ll_l2_reg(float, default=0.1) - 
+    Specify parameter for BVFIM method. Weight of L2 regularization term in the value
+    function of the regularizedLL problem. Referring to module both.ul_optimize.bvfim
+    for more details.</p>
+</li>
+<li>
+<p>ul_l2_reg(float, default=0.01) - 
+    Specify parameter for BVFIM method. Weight of L2 regularization term in the
+    value function of the regularized UL problem. Referring to module
+    both.ul_optimize.bvfim for more details.</p>
+</li>
+<li>
+<p>ul_ln_reg(float, default=10.) - 
+    Specify parameter for BVFIM method. Weight of the log-barrier penalty term in the
+    value function of the regularized UL problem. Referring to module both.ul_optimize.bvfim
+    for more details.</p>
+</li>
+</ul>
+</details>
+<details class="important highlight blink">
+<summary>build_meta_problem_solver()</summary>
+<p>Setting up meta-learning optimization module. Select desired method through given parameters
+and set set related experiment parameters.</p>
+<p>Note that among three methods MT-net, Warpgrad and L2F, only one can be used; while First-order
+and MSGD can be combined with others.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p>meta_optimizer(Optimizer) - 
+    The optimizer used to update initial values of meta model after
+    an iteration.</p>
+</li>
+<li>
+<p>inner_loop(int, default=5) - 
+    Num of inner optimization steps.</p>
+</li>
+<li>
+<p>inner_learning_rate(float, default=0.01) - 
+    Step size for inner optimization.</p>
+</li>
+<li>
+<p>use_second_order(bool, default=True) - 
+    Optional argument, whether to calculate precise second-order gradients during inner-loop.</p>
+</li>
+<li>
+<p>learn_lr(bool, default=False) - 
+    Optional argument, whether to update inner learning rate during outer optimization,
+    i.e. use MSGD method.</p>
+</li>
+<li>
+<p>use_t(bool, default=False) - 
+    Optional argument, whether to using T-layers during optimization,i.e. use MT-net method.</p>
+</li>
+<li>
+<p>use_warp(bool, default=False) - 
+    Optional argument, whether to using warp modules during optimization,i.e. use Warp-grad method.</p>
+</li>
+<li>
+<p>use_forget(bool, default=False) - 
+    Optional argument, whether to add attenuation to each layers, i.e. use L2F method.</p>
+</li>
+</ul>
+</details>
+<details class="important highlight blink">
+<summary>run_iter()</summary>
+<p>Run an iteration with a data batch and updates the parameters of ul model or meta-model.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p>train_data_batch(Tensor) - A batch of train data,which is used during ll optimizing.</p>
+</li>
+<li>
+<p>train_target_batch(Tensor) - A batch of train target,which is used during ll optimizing.</p>
+</li>
+<li>
+<p>validate_data_batch(Tensor) - A batch of test data,which is used during ul optimizing.</p>
+</li>
+<li>
+<p>validate_target_batch(Tensor) - A batch of test target,which is used during ul optimizing.</p>
+</li>
+<li>
+<p>batch_size(int) - The number of training samples in each batch.</p>
+</li>
+<li>
+<p>current_iter(int) - The num of current iter.</p>
+</li>
+<li>
+<p>forward_with_whole_batch(bool, default=True) - Whether to feed in the whole
+  data batch when doing forward propagation.
+            When setting to False, each single data in the batch will be fed into model
+            during this iteration. This useful for some experiment having special setting,
+            like few-shot learning.</p>
+</li>
+</ul>
+<p>Returns</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validation_loss(Tensor) - The value of validation loss value.</p>
+</details>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../bolv.init_optimize/" class="md-footer__link md-footer__link--prev" aria-label="Previous: bolv.meta_optimize" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              bolv.meta_optimize
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../bolv.model/backbone/" class="md-footer__link md-footer__link--next" aria-label="Next: bolv.model.backbone" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              bolv.model.backbone
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5413a266.min.js"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
