@@ -1,0 +1,1425 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+    
+    
+      
+        <title>applications - BOHML</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#00bdd6">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="cyan" data-md-color-accent="pink">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples-of-specific-applications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BOHML" class="md-header__button md-logo" aria-label="BOHML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BOHML
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              applications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/setup/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../documents/bohml.ll_optimize/LowerOptimize/" class="md-tabs__link">
+        Documents
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../methods/" class="md-tabs__link md-tabs__link--active">
+        Examples
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BOHML" class="md-nav__button md-logo" aria-label="BOHML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    BOHML
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/setup/" class="md-nav__link">
+        setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/overview/" class="md-nav__link">
+        overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Documents
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documents" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documents
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          bohml.ll_optimize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.ll_optimize" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.ll_optimize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/LowerOptimize/" class="md-nav__link">
+        LowerOptimize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/Dynamic/" class="md-nav__link">
+        Dynamic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/Implicit/" class="md-nav__link">
+        Implicit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/BVFIM/" class="md-nav__link">
+        BVFIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          bohml.ul_optimize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.ul_optimize" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.ul_optimize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/UpperGrad/" class="md-nav__link">
+        UpperGrad
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/Recurrence/" class="md-nav__link">
+        Recurrence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/Onestage/" class="md-nav__link">
+        Onestage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/LS/" class="md-nav__link">
+        LS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/NS/" class="md-nav__link">
+        NS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/GN/" class="md-nav__link">
+        GN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/BVFIM/" class="md-nav__link">
+        BVFIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.init_optimize/" class="md-nav__link">
+        bohml.meta_optimize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.optimizer/" class="md-nav__link">
+        bohml.optimizer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          bohml.utils
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.utils" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1" type="checkbox" id="__nav_3_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_1">
+          bohml.model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.model" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.model/backbone/" class="md-nav__link">
+        bohml.model.backbone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.model/meta_model/" class="md-nav__link">
+        bohml.model.meta_model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        applications
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#few-shot-learning" class="md-nav__link">
+    few shot learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-cleaning" class="md-nav__link">
+    hyper cleaning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gan" class="md-nav__link">
+    GAN
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#few-shot-learning" class="md-nav__link">
+    few shot learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-cleaning" class="md-nav__link">
+    hyper cleaning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gan" class="md-nav__link">
+    GAN
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="examples-of-specific-applications">Examples of Specific Applications</h1>
+<p>Here we show how to implement some common applications with <code>bohml</code>.</p>
+<p>RAD method is used by default</p>
+<hr />
+<h2 id="few-shot-learning">few shot learning</h2>
+<p>Few shot learning requires dataset Omniglot \ Miniimagenet.</p>
+<p>Define LL and UL objective:</p>
+<pre><code>def ll_objective(data, target, ul_model, ll_model):
+    out_f = ll_model(ul_model(data))
+    loss_f = F.cross_entropy(out_f, target)
+    return loss_f
+
+
+def ul_objective(data, target, ul_model, ll_model):
+    out_F = ll_model(ul_model(data))
+    loss_F = F.cross_entropy(out_F, target)
+    return loss_F
+</code></pre>
+<p>Define LL and UL model along with their opts, <code>both</code> offers Conv and Res12, here we use Res12:</p>
+<pre><code>ul_model = bohml.utils.model.backbone.Res12([5, 3, 84, 84], ways, use_head=False)
+ll_model = nn.Sequential(
+    nn.Flatten(),
+    nn.Linear(np.prod(ul_model.output_shape[1:]), ways)
+)
+ll_opt = torch.optim.SGD(ll_model.parameters(), lr=args.learning_rate)
+ul_opt = torch.optim.Adam(ul_model.parameters())
+ll_model.to(device)
+ul_model.to(device)
+</code></pre>
+<p>Define Bi-level optimizer:</p>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+            "Feature", ll_method="Dynamic", ul_method="Recurrence",
+            ll_objective=ll_objective, ul_objective=ul_objective,
+            ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(args.inner_loop, ll_opt)
+optimizer.build_ul_solver(ul_opt)
+</code></pre>
+<p>Train and evaluate model. Here we use package <code>torchmeta</code> to load train, validate and test data batches:</p>
+<pre><code>dataset = miniimagenet("data", ways=ways, shots=shots, test_shots=test_shots, 
+                       meta_train=True, download=True)
+test_dataset = miniimagenet("data", ways=ways, shots=shots, test_shots=test_shots,
+                            meta_test=True, download=True)
+train_dataloader = BatchMetaDataLoader(dataset, batch_size=batch_size, **kwargs)
+test_dataloader = BatchMetaDataLoader(test_dataset, batch_size=batch_size, **kwargs)
+
+
+with tqdm(train_dataloader, total=60000, desc="Training Phase") as pbar:
+    for meta_iter, batch in enumerate(pbar):
+
+        tr_xs, tr_ys = batch["train"][0].to(device), batch["train"][1].to(device)
+        tst_xs, tst_ys = batch["test"][0].to(device), batch["test"][1].to(device)
+
+        val_loss, forward_time, backward_time = \
+                                    optimizer.run_iter(tr_xs, tr_ys,
+                                    tst_xs, tst_ys, meta_iter, 
+                                    forward_with_whole_batch=False)
+        val_losses.append(val_loss)
+
+        if meta_iter % eval_interval == 0:
+            test_losses, test_accs = evaluate()
+</code></pre>
+<hr />
+<h2 id="hyper-cleaning">hyper cleaning</h2>
+<p>Hyper cleaning requires datasets MINIST \ CIFAR10.</p>
+<p>Setting up data:</p>
+<pre><code>class Dataset:
+    def __init__(self, data, target, polluted=False, rho=0.0):
+        self.data = data.float() / torch.max(data)
+        print(list(target.shape))
+        if not polluted:
+            self.clean_target = target
+            self.dirty_target = None
+            self.clean = np.ones(list(target.shape)[0])
+        else:
+            self.clean_target = None
+            self.dirty_target = target
+            self.clean = np.zeros(list(target.shape)[0])
+        self.polluted = polluted
+        self.rho = rho
+        self.set = set(target.numpy().tolist())
+
+    def data_polluting(self, rho):
+        assert self.polluted == False and self.dirty_target is None
+        number = self.data.shape[0]
+        number_list = list(range(number))
+        random.shuffle(number_list)
+        self.dirty_target = copy.deepcopy(self.clean_target)
+        for i in number_list[:int(rho * number)]:
+            dirty_set = copy.deepcopy(self.set)
+            dirty_set.remove(int(self.clean_target[i]))
+            self.dirty_target[i] = random.randint(0, len(dirty_set))
+            self.clean[i] = 0
+        self.polluted = True
+        self.rho = rho
+
+    def data_flatten(self):
+        try:
+            self.data = self.data.view(self.data.shape[0], self.data.shape[1] * self.data.shape[2])
+        except BaseException:
+            self.data = self.data.reshape(self.data.shape[0],
+                                          self.data.shape[1] * self.data.shape[2] * self.data.shape[3])
+
+    def to_cuda(self):
+        self.data = self.data.cuda()
+        if self.clean_target is not None:
+            self.clean_target = self.clean_target.cuda()
+        if self.dirty_target is not None:
+            self.dirty_target = self.dirty_target.cuda()
+
+def data_splitting(dataset, tr, val, test):
+    assert tr + val + test &lt;= 1.0 or tr &gt; 1
+
+    number = dataset.targets.shape[0]
+    number_list = list(range(number))
+    random.shuffle(number_list)
+    if tr &lt; 1:
+        tr_number = tr * number
+        val_number = val * number
+        test_number = test * number
+    else:
+        tr_number = tr
+        val_number = val
+        test_number = test
+
+    train_data = Dataset(dataset.data[number_list[:int(tr_number)], :, :],
+                         dataset.targets[number_list[:int(tr_number)]])
+    val_data = Dataset(dataset.data[number_list[int(tr_number):int(tr_number + val_number)], :, :],
+                       dataset.targets[number_list[int(tr_number):int(tr_number + val_number)]])
+    test_data = Dataset(
+        dataset.data[number_list[int(tr_number + val_number):(tr_number + val_number + test_number)], :, :],
+        dataset.targets[number_list[int(tr_number + val_number):(tr_number + val_number + test_number)]])
+    return train_data, val_data, test_data
+
+dataset = MNIST(root="data", train=True, download=True)
+tr, val, test = data_splitting(dataset, 5000, 5000, 10000)
+tr.data_polluting(args.pollute_rate)
+tr.data_flatten()
+val.data_flatten()
+test.data_flatten()
+</code></pre>
+<p>Define LL and UL objective:</p>
+<pre><code>def val_loss(data, target, upper_model, lower_model):
+    loss = F.cross_entropy(lower_model(data), target)
+    val_losses.append(tonp(loss))
+    return loss
+
+def train_loss(data, target, upper_model, lower_model):
+    out = upper_model(F.cross_entropy(lower_model(data), target, reduction='none'))
+    return out
+</code></pre>
+<p>Define LL and UL model along with their opts:</p>
+<pre><code>class Net_x(torch.nn.Module):
+    def __init__(self, tr):
+        super(Net_x, self).__init__()
+        self.x = torch.nn.Parameter(torch.zeros(tr.data.shape[0]).to(device).requires_grad_(True))
+
+    def forward(self, y):
+        y = torch.sigmoid(self.x) * y
+        y = y.mean()
+        return y
+x = Net_x(tr)
+y = torch.nn.Sequential(torch.nn.Linear(28 ** 2, 10)).to(device)
+x_opt = torch.optim.Adam(x.parameters(), lr=0.01)
+y_opt=torch.optim.SGD(y.parameters(), lr=0.03)
+</code></pre>
+<p>Define Bi-level optimizer:</p>
+<pre><code>b_optimizer = bohml.optimizer.BOHMLOptimizer(
+            'MetaRepr', 'Feature', 'RAD',
+            ll_objective=train_loss, ul_objective=val_loss,
+            ll_model=y, ul_model=x, total_iters=3000)
+b_optimizer.build_ll_solver(100, y_opt)
+b_optimizer.build_ul_solver(x_opt)
+</code></pre>
+<p>Train and evaluate model.</p>
+<pre><code>for x_itr in range(3000):
+    loss, forward_time, backward_time = \
+                    b_optimizer.run_iter(tr.data, tr.dirty_target,
+                    val.data, val.clean_target,
+                    current_iter=x_itr, forward_with_whole_batch=True)
+
+    if x_itr % 10 == 0:
+        with torch.no_grad():
+            out = y(test.data)
+            acc = accuary(out, test.clean_target)
+            x_bi = Binarization(x.x.cpu().numpy())
+            clean = x_bi * tr.clean
+            acc_history.append(acc)
+            p = clean.mean() / (x_bi.sum() / x_bi.shape[0] + 1e-8)
+            r = clean.mean() / (1. - tr.rho)
+            F1_score = 2 * p * r / (p + r + 1e-8)
+            dc = 0
+            if F1_score_last &gt; F1_score:
+                dc = 1
+            F1_score_last = F1_score
+            valLoss = F.cross_entropy(out, test.clean_target)
+</code></pre>
+<hr />
+<h2 id="gan">GAN</h2>
+<p>Desired packages:</p>
+<pre><code>import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+import seaborn
+from tqdm import tqdm_notebook
+import random
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import scipy
+
+import bohml
+</code></pre>
+<p>Define data generator:</p>
+<pre><code>class data_generator(object):
+    def __init__(self,dis='normal',n=8,std=0.02,radius=2):
+
+        # n = 8      #8
+        # radius = 2
+        # std = 0.02 #0.02
+        delta_theta = 2*np.pi / n
+
+        centers_x = []
+        centers_y = []
+        for i in range(n):
+            centers_x.append(radius*np.cos(i*delta_theta))
+            centers_y.append(radius*np.sin(i*delta_theta))
+
+        centers_x = np.expand_dims(np.array(centers_x), 1)
+        centers_y = np.expand_dims(np.array(centers_y), 1)
+
+        p = [1./n for _ in range(n)]
+
+        self.p = p
+        self.size = 2
+        self.n = n
+        self.dis=dis
+
+        self.centers = np.concatenate([centers_x, centers_y], 1)
+        self.std = std
+
+    # switch to random distribution (harder)
+    def random_distribution(self, p=None):
+        if p is None:
+            p = [np.random.uniform() for _ in range(self.n)]
+            p = p / np.sum(p)
+        self.p = p
+
+    # switch to uniform distribution
+    def uniform_distribution(self):
+        p = [1./self.n for _ in range(self.n)]
+        self.p = p
+
+    def sample(self, N,center_require=False):
+        n = self.n
+        std = self.std
+        centers = self.centers
+
+        ith_center = np.random.choice(n, N,p=self.p)
+        sample_centers = centers[ith_center, :]
+        if self.dis=='normal':
+            sample_points = np.random.normal(loc=sample_centers, scale=std)
+        elif self.dis=='laplace':
+            sample_points = scipy.stats.laplace.rvs(loc=sample_centers,scale=std)
+        if center_require:
+            return sample_points.astype('float32'),ith_center
+        else:
+            return sample_points.astype('float32')
+
+## choose uniform mixture gaussian or weighted mixture gaussian
+dset = data_generator()
+# dset.random_distribution()
+dset.uniform_distribution()
+</code></pre>
+<p>Plot function and KL function and other settings:</p>
+<pre><code># plot the samples through iterations
+def plot_samples(samples):
+    xmax = 5
+    cols = len(samples)
+    bg_color = seaborn.color_palette('Greens', n_colors=256)[0]
+    plt.figure(figsize=(2 * cols, 2))
+    for i, samps in enumerate(samples):
+        if i == 0:
+            ax = plt.subplot(1, cols, 1)
+        else:
+            plt.subplot(1, cols, i + 1, sharex=ax, sharey=ax)
+        ax2 = seaborn.kdeplot(samps[:, 0], samps[:, 1], shaded=True, cmap='Greens', n_levels=20,
+                              clip=[[-xmax, xmax]] * 2)
+        plt.xticks([])
+        plt.yticks([])
+        plt.title('step %d' % (i * 300))
+
+    ax.set_ylabel('%d unrolling steps' % 10)
+    plt.gcf().tight_layout()
+    plt.savefig('target.png')
+    plt.show()
+    plt.close()
+
+def KL(samples, d=-1):
+    n = 8
+    radius = 2
+    std = 0.02
+    delta_theta = 2 * np.pi / n
+
+    centers_x = []
+    centers_y = []
+    for i in range(n):
+        centers_x.append(radius * np.cos(i * delta_theta))
+        centers_y.append(radius * np.sin(i * delta_theta))
+
+    centers_x = np.expand_dims(np.array(centers_x), 1)
+    centers_y = np.expand_dims(np.array(centers_y), 1)
+    centers = np.concatenate([centers_x, centers_y], 1)
+
+    s = samples
+    samplesP = np.zeros(s.shape[0])
+    for i in range(n):
+        samplesP = samplesP + scipy.stats.multivariate_normal.pdf(samples, centers[i], [[std, 0], [0, std]]) / 8
+
+    samplesP=samplesP/sum(samplesP)
+    pd =np.log(samplesP / (1/float(s.shape[0]))) * samplesP
+
+    KL = np.sum(pd)
+    return KL
+
+def setup_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+# 设置随机数种子
+setup_seed(30)
+
+if torch.cuda.is_available():
+    cuda = True
+    os.environ['CUDA_VISIBLE_DEVICES'] = "0"
+else:
+    cuda = False
+
+plt.style.use('ggplot')
+</code></pre>
+<p>Define LL and UL objective:</p>
+<pre><code>def ll_objective(data, target, ul_model, ll_model):
+    d_real_data, d_fake_data = data
+    d_fake_decision = ll_model(d_fake_data)
+    fake_target = torch.zeros_like(d_fake_decision)
+    if cuda:
+        fake_target = fake_target.cuda()
+    d_fake_error = criterion(d_fake_decision, fake_target)  # zeros = fake
+
+    d_real_decision = ll_model(d_real_data)
+    real_target = torch.ones_like(d_real_decision)
+    if cuda:
+        real_target = real_target.cuda()
+    d_real_error = criterion(d_real_decision, real_target)  # ones = true
+
+    d_loss = d_real_error + d_fake_error
+    return d_loss
+
+
+def ul_objective(data, target, ul_model, ll_model):
+    g_fake_data = ul_model(data)
+    dg_fake_decision = ll_model(g_fake_data)
+    target = torch.ones_like(dg_fake_decision)
+    if cuda:
+        target = target.cuda()
+    g_error = criterion(dg_fake_decision, target)
+    return g_error
+</code></pre>
+<p>Define LL and UL model along with their opts:</p>
+<pre><code>class Generator(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size):
+        super(Generator, self).__init__()
+        self.map1 = nn.Linear(input_size, hidden_size)
+        self.map2 = nn.Linear(hidden_size, hidden_size)
+        self.map3 = nn.Linear(hidden_size, output_size)
+        # self.activation_fn = F.tanh
+        self.activation_fn = F.relu
+
+    def forward(self, x):
+        x = self.activation_fn(self.map1(x))
+        x = self.activation_fn(self.map2(x))
+        return self.map3(x)
+
+
+    class Discriminator(nn.Module):
+        def __init__(self, input_size, hidden_size, output_size):
+            super(Discriminator, self).__init__()
+            self.map1 = nn.Linear(input_size, hidden_size)
+            self.map2 = nn.Linear(hidden_size, hidden_size)
+            self.map3 = nn.Linear(hidden_size, output_size)
+            self.activation_fn = F.relu
+
+    def forward(self, x):
+        x = self.activation_fn(self.map1(x))
+        x = self.activation_fn(self.map2(x))
+        return torch.sigmoid(self.map3(x))
+
+    def load(self, backup):
+        for m_from, m_to in zip(backup.modules(), self.modules()):
+            if isinstance(m_to, nn.Linear):
+                m_to.weight.data = m_from.weight.data.clone()
+                if m_to.bias is not None:
+                    m_to.bias.data = m_from.bias.data.clone()
+
+ul_model = Generator(input_size=256, hidden_size=128, output_size=dset.size)
+ll_model = Discriminator(input_size=dset.size, hidden_size=128, output_size=1)
+
+ll_opt = optim.Adam(ll_model.parameters(), lr=1e-4)
+ul_opt = optim.Adam(ul_model.parameters(), lr=1e-4)
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+ll_model.to(device)
+ul_model.to(device)
+</code></pre>
+<p>Define Bi-level optimizer:</p>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+            "Feature", ll_method="Dynamic", ul_method="Recurrence",
+            ll_objective=ll_objective, ul_objective=ul_objective,
+            ll_model=ll_model, ul_model=ul_model, total_iters=3000)
+optimizer.build_ll_solver(10, ll_opt)
+optimizer.build_ul_solver(ul_opt)
+</code></pre>
+<p>Train model:</p>
+<pre><code>def noise_sampler(N, z_dim):
+    return np.random.normal(size=[N, z_dim]).astype('float32')
+
+criterion = nn.BCELoss()
+
+for rhg in range(1):
+    def g_sample():
+        with torch.no_grad():
+            gen_input = torch.from_numpy(noise_sampler(512, 256))
+            if cuda:
+                gen_input = gen_input.cuda()
+            g_fake_data = ul_model(gen_input)
+            return g_fake_data.cpu().numpy()
+    samples = []
+    g_infos = []
+    for it in tqdm_notebook(range(3000)):
+        gen_input = torch.from_numpy(noise_sampler(512, 256))
+        if cuda:
+            gen_input = gen_input.cuda()
+        #  1A: Train D on real
+        d_real_data = torch.from_numpy(dset.sample(512))
+        if cuda:
+            d_real_data = d_real_data.cuda()
+        #  1B: Train D on fake
+        d_gen_input = torch.from_numpy(noise_sampler(512, 256))
+        if cuda:
+            d_gen_input = d_gen_input.cuda()
+        with torch.no_grad():
+            d_fake_data = ul_model(d_gen_input)
+
+        for i in range(1):
+            ll_opt.zero_grad()
+            d_loss = ll_objective([d_real_data, d_fake_data], None, ul_model, ll_model)
+            d_loss.backward()
+            ll_opt.step()
+        g_info, forward_time, backward_time = optimizer.run_iter([d_real_data, d_fake_data], None, gen_input, None,
+                                                                   it, forward_with_whole_batch=True)
+
+        if it % log_interval == 0:
+            g_fake_data = g_sample()
+            samples.append(g_fake_data)
+            print(g_info, KL(samples[-1]))
+
+    plot_samples(samples)
+</code></pre>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../methods/" class="md-footer__link md-footer__link--prev" aria-label="Previous: methods" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              methods
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5413a266.min.js"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

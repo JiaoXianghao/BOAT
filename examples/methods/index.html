@@ -1,0 +1,1369 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+    
+    
+      
+        <title>methods - BOHML</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#00bdd6">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="cyan" data-md-color-accent="pink">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples-of-specific-methods" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BOHML" class="md-header__button md-logo" aria-label="BOHML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BOHML
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/setup/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../documents/bohml.ll_optimize/LowerOptimize/" class="md-tabs__link">
+        Documents
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Examples
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BOHML" class="md-nav__button md-logo" aria-label="BOHML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    BOHML
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/setup/" class="md-nav__link">
+        setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/overview/" class="md-nav__link">
+        overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Documents
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documents" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Documents
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          bohml.ll_optimize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.ll_optimize" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.ll_optimize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/LowerOptimize/" class="md-nav__link">
+        LowerOptimize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/Dynamic/" class="md-nav__link">
+        Dynamic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/Implicit/" class="md-nav__link">
+        Implicit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ll_optimize/BVFIM/" class="md-nav__link">
+        BVFIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          bohml.ul_optimize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.ul_optimize" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.ul_optimize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/UpperGrad/" class="md-nav__link">
+        UpperGrad
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/Recurrence/" class="md-nav__link">
+        Recurrence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/Onestage/" class="md-nav__link">
+        Onestage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/LS/" class="md-nav__link">
+        LS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/NS/" class="md-nav__link">
+        NS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/GN/" class="md-nav__link">
+        GN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.ul_optimize/BVFIM/" class="md-nav__link">
+        BVFIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.init_optimize/" class="md-nav__link">
+        bohml.meta_optimize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.optimizer/" class="md-nav__link">
+        bohml.optimizer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          bohml.utils
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.utils" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1" type="checkbox" id="__nav_3_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_1">
+          bohml.model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="bohml.model" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          bohml.model
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.model/backbone/" class="md-nav__link">
+        bohml.model.backbone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/bohml.model/meta_model/" class="md-nav__link">
+        bohml.model.meta_model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          methods
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        methods
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bi-level-optimization" class="md-nav__link">
+    Bi-Level Optimization
+  </a>
+  
+    <nav class="md-nav" aria-label="Bi-Level Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rad" class="md-nav__link">
+    RAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trad" class="md-nav__link">
+    TRAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onestage-rad" class="md-nav__link">
+    OneStage-RAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ls" class="md-nav__link">
+    LS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ns" class="md-nav__link">
+    NS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gn" class="md-nav__link">
+    GN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bda" class="md-nav__link">
+    BDA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bvfim" class="md-nav__link">
+    BVFIM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iaptt-gm" class="md-nav__link">
+    IAPTT-GM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialization-optimization" class="md-nav__link">
+    Initialization Optimization
+  </a>
+  
+    <nav class="md-nav" aria-label="Initialization Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maml" class="md-nav__link">
+    MAML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fomaml" class="md-nav__link">
+    FOMAML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msgd" class="md-nav__link">
+    MSGD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt-net" class="md-nav__link">
+    MT-net
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warp-grad" class="md-nav__link">
+    Warp-grad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l2f" class="md-nav__link">
+    L2F
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../applications/" class="md-nav__link">
+        applications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bi-level-optimization" class="md-nav__link">
+    Bi-Level Optimization
+  </a>
+  
+    <nav class="md-nav" aria-label="Bi-Level Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rad" class="md-nav__link">
+    RAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trad" class="md-nav__link">
+    TRAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onestage-rad" class="md-nav__link">
+    OneStage-RAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ls" class="md-nav__link">
+    LS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ns" class="md-nav__link">
+    NS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gn" class="md-nav__link">
+    GN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bda" class="md-nav__link">
+    BDA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bvfim" class="md-nav__link">
+    BVFIM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iaptt-gm" class="md-nav__link">
+    IAPTT-GM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialization-optimization" class="md-nav__link">
+    Initialization Optimization
+  </a>
+  
+    <nav class="md-nav" aria-label="Initialization Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#maml" class="md-nav__link">
+    MAML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fomaml" class="md-nav__link">
+    FOMAML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msgd" class="md-nav__link">
+    MSGD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mt-net" class="md-nav__link">
+    MT-net
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warp-grad" class="md-nav__link">
+    Warp-grad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l2f" class="md-nav__link">
+    L2F
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="examples-of-specific-methods">Examples of Specific Methods</h1>
+<h2 id="bi-level-optimization">Bi-Level Optimization</h2>
+<p>Before setting up problem solver with BOHML, model and objective function need to be defined in advance.
+Here we take few shot learning as example.</p>
+<p>Model and optimizer:</p>
+<pre><code>ul_model = bohml.utils.model.backbone.Res12([5, 3, 84, 84], ways, use_head=False)
+ll_model = nn.Sequential(
+    nn.Flatten(),
+    nn.Linear(np.prod(ul_model.output_shape[1:]), ways)
+)
+ll_opt = torch.optim.SGD(ll_model.parameters(), lr=args.learning_rate)
+ul_opt = torch.optim.Adam(ul_model.parameters())
+</code></pre>
+<p>LL and UL objective:</p>
+<pre><code>def ll_o(data, target, ul_model, ll_model):
+    out_f = ll_model(ul_model(data))
+    loss_f = F.cross_entropy(out_f, target)
+    return loss_f
+
+
+def ul_o(data, target, ul_model, ll_model):
+    out_F = ll_model(ul_model(data))
+    loss_F = F.cross_entropy(out_F, target)
+    return loss_F
+</code></pre>
+<p>Then we could set desired method and correlative parameters.</p>
+<hr />
+<h3 id="rad">RAD</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="Dynamic", ul_method="Recurrence",
+        ll_objective=ll_o, ul_objective=ul_o,
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop, ll_opt)
+optimizer.build_ul_solver(ul_opt)
+</code></pre>
+<h3 id="trad">TRAD</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="Dynamic", ul_method="Recurrence",
+        ll_objective=ll_o, ul_objective=ul_o,
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop, ll_opt, truncate_iter=2)
+optimizer.build_ul_solver(ul_opt)
+</code></pre>
+<h3 id="onestage-rad">OneStage-RAD</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="Dynamic", ul_method="Onestage",
+        ll_objective=ll_o, ul_objective=ul_o,
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop=1, ll_opt)
+optimizer.build_ul_solver(ul_opt)
+</code></pre>
+<h3 id="ls">LS</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="Implicit", ul_method="LS", 
+        ll_objective=ll_o, ul_objective=ul_o, 
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop, ll_opt)
+optimizer.build_ul_solver(ul_opt, k=10, tolerance=1e-10)
+</code></pre>
+<h3 id="ns">NS</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="Implicit", ul_method="NS", 
+        ll_objective=ll_o, ul_objective=ul_o, 
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop, ll_opt)
+optimizer.build_ul_solver(ul_opt, k=10, tolerance=1e-10)
+</code></pre>
+<h3 id="gn">GN</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="Implicit", ul_method="GN",
+        ll_objective=ll_o, ul_objective=ul_o, 
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop, ll_opt)
+optimizer.build_ul_solver(ul_opt)
+</code></pre>
+<h3 id="bda">BDA</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="Dynamic", ul_method="Recurrence",
+        ll_objective=ll_o, ul_objective=ul_o, 
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop, ll_opt, alpha_init=0.4, alpha_decay=0.9)
+optimizer.build_ul_solver(ul_opt)
+</code></pre>
+<h3 id="bvfim">BVFIM</h3>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+        "Feature", ll_method="BVFIM", ul_method="BVFIM",
+        ll_objective=ll_o, ul_objective=ul_o,
+        ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(lower_loop, ll_opt, y_loop=5, ll_l2_reg=0.1, 
+                          ul_l2_reg=0.01, ul_ln_reg=10., reg_decay=True)
+optimizer.build_ul_solver(ul_opt, ll_l2_reg=0.1, ul_l2_reg=0.01, ul_ln_reg=10.)
+</code></pre>
+<h3 id="iaptt-gm">IAPTT-GM</h3>
+<p>IAPTT-GM method requires a UL objective function of a different format, which 
+defined as:</p>
+<pre><code>def ul_o_iapttgm(data, target, ul_model, ll_model, time=-1):
+    if time&gt;0:
+        out_F = ll_model(ul_model(data), params=ll_model.parameters(time=time))
+        loss_F = F.cross_entropy(out_F, target)
+    else:
+        out_F = ll_model(ul_model(data))
+        loss_F = F.cross_entropy(out_F, target)
+    return loss_F
+</code></pre>
+<p>Then set method parameters as usual:</p>
+<pre><code>optimizer = bohml.optimizer.BOHMLOptimizer(
+    "Feature", ll_method="Dynamic", ul_method="Recurrence",
+    ll_objective=ll_o, ul_objective=ul_o_iapttgm,
+    ll_model=ll_model, ul_model=ul_model)
+optimizer.build_ll_solver(args.inner_loop, ll_opt, truncate_max_loss_iter=True)
+optimizer.build_ul_solver(ul_opt, update_ll_model_init=True)
+</code></pre>
+<hr />
+<p>After setting problem solver, we could train our model with <code>optimizer</code>:</p>
+<pre><code># The data preparation part and evaluation function are omitted
+with tqdm(train_dataloader, total=60000, desc="Meta Training Phase") as pbar:
+    for meta_iter, batch in enumerate(pbar):
+
+        tr_xs, tr_ys = batch["train"][0].to(device), batch["train"][1].to(device)
+        tst_xs, tst_ys = batch["test"][0].to(device), batch["test"][1].to(device)
+
+        val_loss, forward_time, backward_time = 
+                optimizer.run_iter(tr_xs, tr_ys, tst_xs, tst_ys,
+                meta_iter, forward_with_whole_batch=False)
+        val_losses.append(val_loss)
+
+        if meta_iter % eval_interval == 0:
+            evaluate()
+</code></pre>
+<hr />
+<h2 id="initialization-optimization">Initialization Optimization</h2>
+<p>As using BLO, we should also predefine our model and objective functions:</p>
+<pre><code>backbone_model = bohml.utils.model.backbone.Conv([5, 3, 84, 84], 
+                                ways, num_filters, use_head=True)
+
+def i_o(data, target, model, params):
+    return F.cross_entropy(model(data, params), target)
+
+def o_o(data, target, model, params):
+    return F.cross_entropy(model(data, params), target)
+</code></pre>
+<p>But when use initialization optimization methods, we need to wrap our 
+backbone model with <code>bohml.utils.model.MetaModel</code>, and the method and correlative parameters
+are also setting with it:</p>
+<hr />
+<h3 id="maml">MAML</h3>
+<pre><code>meta_model = bohml.utils.model.MetaModel(backbone_model)
+outer_opt = torch.optim.Adam(meta_model.parameters())
+
+optimizer = bohml.optimizer.BOHMLOptimizer("Initial", inner_objective=i_o,
+                            outer_objective=o_o, meta_model=meta_model)
+optimizer.build_meta_solver(outer_opt, inner_loop, inner_learning_rate=0.01,
+                            use_second_order=True)
+</code></pre>
+<h3 id="fomaml">FOMAML</h3>
+<p>The procedure of FOMAML method is identical to MAML  except for:</p>
+<pre><code>optimizer.build_meta_solver(outer_opt, inner_loop, inner_learning_rate=0.01,
+                            use_second_order=False)
+</code></pre>
+<p>Note that the parameter <code>use_second_order</code> could not only work on method MAML but
+also on other methods which will use first-order approximation during outer optimization.</p>
+<h3 id="msgd">MSGD</h3>
+<p>Choose MSGD method when wrap backbone model:</p>
+<pre><code>meta_model = bohml.utils.model.MetaModel(backbone_model, learn_lr=True,
+                                        meta_lr=0.1)
+</code></pre>
+<h3 id="mt-net">MT-net</h3>
+<p>Choose MT-net method when wrap backbone model:</p>
+<pre><code>meta_model = bohml.utils.model.MetaModel(backbone_model, use_t=True)
+</code></pre>
+<h3 id="warp-grad">Warp-grad</h3>
+<p>Choose Warp-grad method when wrap backbone model:</p>
+<pre><code>meta_model = bohml.utils.model.MetaModel(backbone_model, use_warp=True,
+                                        num_warp_layers=1)
+</code></pre>
+<h3 id="l2f">L2F</h3>
+<p>Choose L2F method when wrap backbone model:</p>
+<pre><code>meta_model = bohml.utils.model.MetaModel(backbone_model, use_forget=True)
+</code></pre>
+<hr />
+<p>Training and evaluation procedures are the same as above.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../documents/bohml.model/meta_model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: bohml.model.meta_model" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              bohml.model.meta_model
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../applications/" class="md-footer__link md-footer__link--next" aria-label="Next: applications" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              applications
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5413a266.min.js"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

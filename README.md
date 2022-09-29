@@ -1,221 +1,220 @@
+</br>
+
+<p align="center">
+  <img height="80px" src="logo.png" alt="river_logo">
+</p>
+
+</br>
+
+<p align="center">
+  <!-- Tests -->
+  <a href="https://github.com/online-ml/river/actions/workflows/unit-tests.yml">
+    <img src="https://github.com/online-ml/river/actions/workflows/unit-tests.yml/badge.svg" alt="tests">
+  </a>
+  <!-- Code coverage -->
+  <a href="https://codecov.io/gh/online-ml/river">
+    <img src="https://codecov.io/gh/online-ml/river/branch/main/graph/badge.svg?token=luK6eFoMa9"/>
+  </a>
+  <!-- Documentation -->
+  <a href="https://riverml.xyz">
+    <img src="https://img.shields.io/website?label=docs&style=flat-square&url=https%3A%2F%2Friverml.xyz%2F" alt="documentation">
+  </a>
+  <!-- Roadmap -->
+  <a href="https://www.notion.so/d1e86fcdf21e4deda16eedab2b3361fb?v=503f44740b8b44a99a961aa96e9e46e1">
+    <img src="https://img.shields.io/website?label=roadmap&style=flat-square&url=https://www.notion.so/d1e86fcdf21e4deda16eedab2b3361fb?v=503f44740b8b44a99a961aa96e9e46e1" alt="roadmap">
+  </a>
+  <!-- PyPI -->
+  <a href="https://pypi.org/project/river">
+    <img src="https://img.shields.io/pypi/v/river.svg?label=release&color=blue&style=flat-square" alt="pypi">
+  </a>
+  <!-- PePy -->
+  <a href="https://pepy.tech/project/river">
+    <img src="https://static.pepy.tech/badge/river?style=flat-square" alt="pepy">
+  </a>
+  <!-- License -->
+  <a href="https://opensource.org/licenses/BSD-3-Clause">
+    <img src="https://img.shields.io/badge/License-BSD%203--Clause-blue.svg?style=flat-square" alt="bsd_3_license">
+  </a>
+</p>
+
+</br>
+
+<p align="center">
+  River is a Python library for <a href="https://www.wikiwand.com/en/Online_machine_learning">online machine learning</a>. It is the result of a merger between <a href="https://github.com/MaxHalford/creme">creme</a> and <a href="https://github.com/scikit-multiflow/scikit-multiflow">scikit-multiflow</a>. River's ambition is to be the go-to library for doing machine learning on streaming data.
+</p>
+
+## ⚡️ Quickstart
+
+As a quick example, we'll train a logistic regression to classify the [website phishing dataset](http://archive.ics.uci.edu/ml/datasets/Website+Phishing). Here's a look at the first observation in the dataset.
+
+```python
+>>> from pprint import pprint
+>>> from river import datasets
+
+>>> dataset = datasets.Phishing()
+
+>>> for x, y in dataset:
+...     pprint(x)
+...     print(y)
+...     break
+{'age_of_domain': 1,
+ 'anchor_from_other_domain': 0.0,
+ 'empty_server_form_handler': 0.0,
+ 'https': 0.0,
+ 'ip_in_url': 1,
+ 'is_popular': 0.5,
+ 'long_url': 1.0,
+ 'popup_window': 0.0,
+ 'request_from_other_domain': 0.0}
+True
+
+```
+
+Now let's run the model on the dataset in a streaming fashion. We sequentially interleave predictions and model updates. Meanwhile, we update a performance metric to see how well the model is doing.
+
+```python
+>>> from river import compose
+>>> from river import linear_model
+>>> from river import metrics
+>>> from river import preprocessing
 
-# BOHML - A Bilevel Optimization Toolkit in Python for Learning and Vision Tasks
-[![PyPI version](https://badge.fury.io/py/boml.svg)](https://badge.fury.io/py/boml)
-[![tests](https://github.com/JiaoXianghao/BOHML/actions/workflows/test.yml/badge.svg)](https://github.com/JiaoXianghao/BOHML/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/JiaoXianghao/BOHML/branch/main/graph/badge.svg?token=8Y3OK2WPDE)](https://codecov.io/gh/JiaoXianghao/BOHML)
-[![pages-build-deployment](https://github.com/JiaoXianghao/bolv.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/JiaoXianghao/bolv.github.io/actions/workflows/pages/pages-build-deployment)
-![Language](https://img.shields.io/github/languages/top/dut-media-lab/boml?logoColor=green)
-![Python version](https://img.shields.io/pypi/pyversions/boml)
-![license](https://img.shields.io/badge/license-MIT-000000.svg)
-![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
+>>> model = compose.Pipeline(
+...     preprocessing.StandardScaler(),
+...     linear_model.LogisticRegression()
+... )
 
-[comment]: <> (BOML is a modularized optimization library that unifies several ML algorithms into a common bilevel optimization framework. It provides interfaces to implement popular bilevel optimization algorithms, so that you could quickly build your own meta learning neural network and test its performance.)
+>>> metric = metrics.Accuracy()
 
-[comment]: <> (ReadMe.md contains brief introduction to implement meta-initialization-based and meta-feature-based methods in few-shot classification field. Except for algorithms which have been proposed, various combinations of lower level and upper level strategies are available. )
+>>> for x, y in dataset:
+...     y_pred = model.predict_one(x)      # make a prediction
+...     metric = metric.update(y, y_pred)  # update the metric
+...     model = model.learn_one(x, y)      # make the model learn
 
-[comment]: <> (## Meta Learning )
+>>> metric
+Accuracy: 89.20%
 
-[comment]: <> (Meta learning works fairly well when facing incoming new tasks by learning an initialization with favorable generalization capability. And it also has good performance even provided with a small amount of training data available, which gives birth to various solutions for different application such as few-shot learning problem.)
+```
 
-[comment]: <> (We present a general bilevel optimization paradigm to unify different types of meta learning approaches, and the mathematical form could be summarized as below:<br>)
+## 🛠 Installation
 
-[comment]: <> (<div align=center>)
-  
-[comment]: <> (![Bilevel Optimization Model]&#40;https://github.com/dut-media-lab/BOML/blob/master/figures/p1.png&#41;)
+River is intended to work with **Python 3.6 or above**. Installation can be done with `pip`:
 
-[comment]: <> (</div>)
+```sh
+pip install river
+```
 
-[comment]: <> (## Generic Optimization Routine)
+There are [wheels available](https://pypi.org/project/river/#files) for Linux, MacOS, and Windows, which means that you most probably won't have to build River from source.
 
-[comment]: <> (Here we illustrate the generic optimization process and hierarchically built strategies in the figure, which could be quikcly implemented in the following example.<br>)
+You can install the latest development version from GitHub as so:
 
-[comment]: <> (<div align=center>)
-  
-[comment]: <> (![Optimization Routine]&#40;https://github.com/dut-media-lab/BOML/blob/master/figures/p2.png&#41;)
+```sh
+pip install git+https://github.com/online-ml/river --upgrade
+```
 
-[comment]: <> (</div>)
+Or, through SSH:
 
-[comment]: <> (## Documentation )
+```sh
+pip install git+ssh://git@github.com/online-ml/river.git --upgrade
+```
 
-[comment]: <> (For more detailed information of basic function and construction process, please refer to our [Documentation]&#40;https://boml.readthedocs.io&#41; or[Project Page]&#40;https://dut-media-lab.github.io/BOML/&#41;. Scripts in the directory named test_script are useful for constructing general training process.)
+## 🧠 Philosophy
 
-[comment]: <> (Here we give recommended settings for specific hyper paremeters to quickly test performance of popular algorithms.)
+Machine learning is often done in a batch setting, whereby a model is fitted to a dataset in one go. This results in a static model which has to be retrained in order to learn from new data. In many cases, this isn't elegant nor efficient, and usually incurs [a fair amount of technical debt](https://research.google/pubs/pub43146/). Indeed, if you're using a batch model, then you need to think about maintaining a training set, monitoring real-time performance, model retraining, etc.
 
-[comment]: <> (## Running examples)
+With River, we encourage a different approach, which is to continuously learn a stream of data. This means that the model process one observation at a time, and can therefore be updated on the fly. This allows to learn from massive datasets that don't fit in main memory. Online machine learning also integrates nicely in cases where new data is constantly arriving. It shines in many use cases, such as time series forecasting, spam filtering, recommender systems, CTR prediction, and IoT applications. If you're bored with retraining models and want to instead build dynamic models, then online machine learning (and therefore River!) might be what you're looking for.
 
-[comment]: <> (### Start from loading data)
+Here are some benefits of using River (and online machine learning in general):
 
-[comment]: <> (```python)
+- **Incremental**: models can update themselves in real-time.
+- **Adaptive**: models can adapt to [concept drift](https://www.wikiwand.com/en/Concept_drift).
+- **Production-ready**: working with data streams makes it simple to replicate production scenarios during model development.
+- **Efficient**: models don't have to be retrained and require little compute power, which [lowers their carbon footprint](https://arxiv.org/abs/1907.10597)
+- **Fast**: when the goal is to learn and predict with a single instance at a time, then River is an order of magnitude faster than PyTorch, Tensorflow, and scikit-learn.
 
-[comment]: <> (import boml)
+## 🔥 Features
 
-[comment]: <> (from boml import utils)
+- Linear models with a wide array of optimizers
+- Nearest neighbors, decision trees, naïve Bayes
+- [Progressive model validation](https://hunch.net/~jl/projects/prediction_bounds/progressive_validation/coltfinal.pdf)
+- Model pipelines as a first-class citizen
+- Anomaly detection
+- Recommender systems
+- Time series forecasting
+- Imbalanced learning
+- Clustering
+- Feature extraction and selection
+- Online statistics and metrics
+- Built-in datasets
+- And [much more](https://riverml.xyz/latest/api/overview/)
 
-[comment]: <> (from test_script.script_helper import *)
+## 🔗 Useful links
 
-[comment]: <> (dataset = boml.load_data.meta_omniglot&#40;)
+- [Documentation](https://riverml.xyz)
+- [Benchmarks](https://github.com/online-ml/river/tree/main/benchmarks)
+- [Issue tracker](https://github.com/online-ml/river/issues)
+- [Package releases](https://pypi.org/project/river/#history)
 
-[comment]: <> (    std_num_classes=args.classes,)
+## 👁️ Media
 
-[comment]: <> (    examples_train=args.examples_train,)
+- PyData Amsterdam 2019 presentation ([slides](https://maxhalford.github.io/slides/creme-pydata), [video](https://www.youtube.com/watch?v=P3M6dt7bY9U&list=PLGVZCDnMOq0q7_6SdrC2wRtdkojGBTAht&index=11))
+- [Toulouse Data Science Meetup presentation](https://maxhalford.github.io/slides/creme-tds)
+- [Machine learning for streaming data with creme](https://towardsdatascience.com/machine-learning-for-streaming-data-with-creme-dacf5fb469df)
+- [Hong Kong Data Science Meetup presentation](https://maxhalford.github.io/slides/hkml2020.pdf)
 
-[comment]: <> (    examples_test=args.examples_test,)
+## 👍 Contributing
 
-[comment]: <> (&#41;)
+Feel free to contribute in any way you like, we're always open to new ideas and approaches.
 
-[comment]: <> (# create instance of BOMLExperiment for ong single task)
+There are three ways for users to get involved:
 
-[comment]: <> (ex = boml.BOMLExperiment&#40;dataset&#41;)
+- [Issue tracker](https://github.com/online-ml/river/issues): this place is meant to report bugs, request for minor features, or small improvements. Issues should be short-lived and solved as fast as possible.
+- [Discussions](https://github.com/online-ml/river/discussions): you can ask for new features, submit your questions and get help, propose new ideas, or even show the community what you are achieving with River! If you have a new technique or want to port a new functionality to River, this is the place to discuss.
+- [Roadmap](https://www.notion.so/d1e86fcdf21e4deda16eedab2b3361fb?v=503f44740b8b44a99a961aa96e9e46e1): you can check what we are doing, what are the next planned milestones for River, and look for cool ideas that still need someone to make them become a reality!
 
-[comment]: <> (```)
+Please check out the [contribution guidelines](https://github.com/online-ml/river/blob/main/CONTRIBUTING.md) if you want to bring modifications to the code base. You can view the list of people who have contributed [here](https://github.com/online-ml/river/graphs/contributors).
 
-[comment]: <> (### Build network structure and define parameters for meta-learner and base-learner)
+## ❤️ They've used us
 
-[comment]: <> (```python)
+These are companies that we know have been using River, be it in production or for prototyping.
 
-[comment]: <> (boml_ho = boml.BOLVOptimizer&#40;)
+<p align="center">
+  <img width="70%" src="https://docs.google.com/drawings/d/e/2PACX-1vQbCUQkTU74dBf411r4nDl4udmqOEbLqzRtokUC-N7JDJUA7BGTfnMGmiMNqbcSuOaWAmazp1rFGwDC/pub?w=1194&h=567" alt="companies">
+</p>
 
-[comment]: <> (    method="MetaInit", inner_method="Simple", outer_method="Simple")
+Feel welcome to get in touch if you want us to add your company logo!
 
-[comment]: <> (&#41;)
+## 🤝 Affiliations
 
-[comment]: <> (meta_learner = boml_ho.meta_learner&#40;_input=ex.x, dataset=dataset, meta_model="V1"&#41;)
+**Sponsors**
 
-[comment]: <> (ex.adapt_model = boml_ho.base_learner&#40;_input=ex.x, meta_learner=meta_learner&#41;)
+<p align="center">
+  <img width="55%" src="https://docs.google.com/drawings/d/e/2PACX-1vSagEhWAjDsb0c24En_fhWAf9DJZbyh5YjU7lK0sNowD2m9uv9TuFm-U77k6ObqTyN2mP05Avf6TCJc/pub?w=2073&h=1127" alt="sponsors">
+</p>
 
-[comment]: <> (``` )
+**Collaborating institutions and groups**
 
-[comment]: <> (### Define LL objectives and LL calculation process)
+<p align="center">
+  <img width="55%" src="https://docs.google.com/drawings/d/e/2PACX-1vQB0C8YgnkCt_3C3cp-Csaw8NLZUwishdbJFB3iSbBPUD0AxEVS9AlF-Rs5PJq8UVRzRtFwZIOucuXj/pub?w=1442&h=489" alt="collaborations">
+</p>
 
-[comment]: <> (```python)
+## 💬 Citation
 
-[comment]: <> (loss_inner = utils.cross_entropy&#40;pred=ex.adapt_model.out, label=ex.y&#41;)
+If `river` has been useful for your research and you would like to cite it in an scientific publication, please refer to this [paper](https://arxiv.org/abs/2012.04740):
 
-[comment]: <> (accuracy = utils.classification_acc&#40;pred=ex.adapt_model.out, label=ex.y&#41;)
+```bibtex
+@misc{2020river,
+      title={River: machine learning for streaming data in Python},
+      author={Jacob Montiel and Max Halford and Saulo Martiello Mastelini
+              and Geoffrey Bolmier and Raphael Sourty and Robin Vaysse
+              and Adil Zouitine and Heitor Murilo Gomes and Jesse Read
+              and Talel Abdessalem and Albert Bifet},
+      year={2020},
+      eprint={2012.04740},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
 
-[comment]: <> (inner_grad = boml_ho.ll_problem&#40;)
+## 📝 License
 
-[comment]: <> (    inner_objective=loss_inner,)
-
-[comment]: <> (    learning_rate=args.lr,)
-
-[comment]: <> (    T=args.T,)
-
-[comment]: <> (    experiment=ex,)
-
-[comment]: <> (    var_list=ex.adapt_model.var_list,)
-
-[comment]: <> (&#41;)
-
-[comment]: <> (```)
-
-[comment]: <> (### Define UL objectives and UL calculation process)
-
-[comment]: <> (```python)
-
-[comment]: <> (loss_outer = utils.cross_entropy&#40;pred=ex.adapt_model.re_forward&#40;ex.x_&#41;.out, label=ex.y_&#41;  # loss function)
-
-[comment]: <> (boml_ho.ul_problem&#40;)
-
-[comment]: <> (    outer_objective=loss_outer,)
-
-[comment]: <> (    meta_learning_rate=args.meta_lr,)
-
-[comment]: <> (    inner_grad=inner_grad,)
-
-[comment]: <> (    meta_param=tf.get_collection&#40;boml.extension.GraphKeys.METAPARAMETERS&#41;,)
-
-[comment]: <> (&#41;)
-
-[comment]: <> (```)
-
-[comment]: <> (### Aggregate all the defined operations)
-
-[comment]: <> (```python)
-
-[comment]: <> (# Only need to be called once after all the tasks are ready)
-
-[comment]: <> (boml_ho.aggregate_all&#40;&#41;)
-
-[comment]: <> (```)
-
-[comment]: <> (### Meta training iteration)
-
-[comment]: <> (```python)
-
-[comment]: <> (with tf.Session&#40;&#41; as sess:)
-
-[comment]: <> (    tf.global_variables_initializer&#40;&#41;.run&#40;session=sess&#41;)
-
-[comment]: <> (    for itr in range&#40;args.meta_train_iterations&#41;:)
-
-[comment]: <> (        # Generate the feed_dict for calling run&#40;&#41; everytime)
-
-[comment]: <> (        train_batch = BatchQueueMock&#40;)
-
-[comment]: <> (            dataset.train, 1, args.meta_batch_size, utils.get_rand_state&#40;1&#41;)
-
-[comment]: <> (        &#41;)
-
-[comment]: <> (        tr_fd, v_fd = utils.feed_dict&#40;train_batch.get_single_batch&#40;&#41;, ex&#41;)
-
-[comment]: <> (        # Meta training step)
-
-[comment]: <> (        boml_ho.run&#40;tr_fd, v_fd&#41;)
-
-[comment]: <> (        if itr % 100 == 0:)
-
-[comment]: <> (            print&#40;sess.run&#40;loss_inner, utils.merge_dicts&#40;tr_fd, v_fd&#41;&#41;&#41;)
-
-[comment]: <> (```)
-
-[comment]: <> (## Related Methods )
-
-[comment]: <> ( - [Hyperparameter optimization with approximate gradient&#40;HOAG&#41;]&#40;https://arxiv.org/abs/1602.02355&#41;)
-
-[comment]: <> ( - [Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks&#40;MAML&#41;]&#40;https://arxiv.org/abs/1703.03400&#41;)
-
-[comment]: <> ( - [On First-Order Meta-Learning Algorithms&#40;FMAML&#41;]&#40;https://arxiv.org/abs/1703.03400&#41;)
-
-[comment]: <> ( - [Meta-SGD: Learning to Learn Quickly for Few-Shot Learning&#40;Meta-SGD&#41;]&#40;https://arxiv.org/pdf/1707.09835.pdf&#41;)
-
-[comment]: <> ( - [Bilevel Programming for Hyperparameter Optimization and Meta-Learning&#40;RHG&#41;]&#40;http://export.arxiv.org/pdf/1806.04910&#41;)
-
-[comment]: <> ( - [Truncated Back-propagation for Bilevel Optimization&#40;TG&#41;]&#40;https://arxiv.org/pdf/1810.10667.pdf&#41;)
-
-[comment]: <> ( - [Gradient-Based Meta-Learning with Learned Layerwise Metric and Subspace&#40;MT-net&#41;]&#40;http://proceedings.mlr.press/v80/lee18a/lee18a.pdf&#41;)
-
-[comment]: <> ( - [Meta-Learning with warped gradient Descent&#40;WarpGrad&#41;&#41;]&#40;https://arxiv.org/abs/1909.00025&#41;)
-
-[comment]: <> ( - [DARTS: Differentiable Architecture Search&#40;DARTS&#41;]&#40;https://arxiv.org/pdf/1806.09055.pdf&#41;)
-
-[comment]: <> ( - [A Generic First-Order Algorithmic Framework for Bi-Level Programming Beyond Lower-Level Singleton&#40;BDA&#41;]&#40;https://arxiv.org/pdf/2006.04045.pdf&#41;)
-
-
-
-## License
-
-MIT License
-
-Copyright (c) 2022 Xianghao Jiao
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
-
+River is free and open-source software licensed under the [3-clause BSD license](https://github.com/online-ml/river/blob/main/LICENSE).
