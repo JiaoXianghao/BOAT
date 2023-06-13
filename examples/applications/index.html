@@ -1025,7 +1025,7 @@ def data_splitting(dataset, tr, val, test):
 from torchvision.datasets import MNIST
 dataset = MNIST(root="data", train=True, download=True)
 tr, val, test = data_splitting(dataset, 5000, 5000, 10000)
-tr.data_polluting(args.pollute_rate)
+tr.data_polluting(0.5)
 tr.data_flatten()
 val.data_flatten()
 test.data_flatten()
