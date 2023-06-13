@@ -191,7 +191,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../documents/bohml.ll_optimize/LowerOptimize/" class="md-tabs__link">
+      <a href="../../documents/bohml.ll_solver/LLOptimize.md" class="md-tabs__link">
         Documents
       </a>
     </li>
@@ -393,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ll_optimize/LowerOptimize/" class="md-nav__link">
+      <a href="../../documents/bohml.ll_solver/LLOptimize.md" class="md-nav__link">
         LowerOptimize
       </a>
     </li>
@@ -407,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ll_optimize/Dynamic/" class="md-nav__link">
+      <a href="../../documents/bohml.ll_solver/Dynamic.md" class="md-nav__link">
         Dynamic
       </a>
     </li>
@@ -421,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ll_optimize/Implicit/" class="md-nav__link">
+      <a href="../../documents/bohml.ll_solver/Implicit.md" class="md-nav__link">
         Implicit
       </a>
     </li>
@@ -435,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ll_optimize/BVFIM/" class="md-nav__link">
+      <a href="../../documents/bohml.ll_solver/BVFIM.md" class="md-nav__link">
         BVFIM
       </a>
     </li>
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ul_optimize/UpperGrad/" class="md-nav__link">
+      <a href="../../documents/bohml.ul_solver/ULGrad.md" class="md-nav__link">
         UpperGrad
       </a>
     </li>
@@ -496,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ul_optimize/Recurrence/" class="md-nav__link">
+      <a href="../../documents/bohml.ul_solver/Recurrence.md" class="md-nav__link">
         Recurrence
       </a>
     </li>
@@ -510,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ul_optimize/Onestage/" class="md-nav__link">
+      <a href="../../documents/bohml.ul_solver/Onestage.md" class="md-nav__link">
         Onestage
       </a>
     </li>
@@ -524,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ul_optimize/LS/" class="md-nav__link">
+      <a href="../../documents/bohml.ul_solver/LS.md" class="md-nav__link">
         LS
       </a>
     </li>
@@ -538,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ul_optimize/NS/" class="md-nav__link">
+      <a href="../../documents/bohml.ul_solver/NS.md" class="md-nav__link">
         NS
       </a>
     </li>
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ul_optimize/GN/" class="md-nav__link">
+      <a href="../../documents/bohml.ul_solver/GN.md" class="md-nav__link">
         GN
       </a>
     </li>
@@ -566,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.ul_optimize/BVFIM/" class="md-nav__link">
+      <a href="../../documents/bohml.ul_solver/BVFIM.md" class="md-nav__link">
         BVFIM
       </a>
     </li>
@@ -601,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documents/bohml.optimizer/" class="md-nav__link">
+      <a href="../../documents/bohml.optimizer.md" class="md-nav__link">
         bohml.optimizer
       </a>
     </li>
@@ -953,7 +953,7 @@ with tqdm(train_dataloader, total=60000, desc="Training Phase") as pbar:
 <hr />
 <h2 id="hyper-cleaning">hyper cleaning</h2>
 <p>Hyper cleaning requires datasets MINIST \ CIFAR10.</p>
-<p>Setting up data:</p>
+<p>Setting up data and metric function:</p>
 <pre><code>class Dataset:
     def __init__(self, data, target, polluted=False, rho=0.0):
         self.data = data.float() / torch.max(data)
@@ -1022,17 +1022,30 @@ def data_splitting(dataset, tr, val, test):
         dataset.targets[number_list[int(tr_number + val_number):(tr_number + val_number + test_number)]])
     return train_data, val_data, test_data
 
+from torchvision.datasets import MNIST
 dataset = MNIST(root="data", train=True, download=True)
 tr, val, test = data_splitting(dataset, 5000, 5000, 10000)
 tr.data_polluting(args.pollute_rate)
 tr.data_flatten()
 val.data_flatten()
 test.data_flatten()
+
+def accuary(out, target):
+pred = out.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+acc = pred.eq(target.view_as(pred)).sum().item() / len(target)
+return acc
+
+
+def Binarization(x):
+    x_bi = np.zeros_like(x)
+    for i in range(x.shape[0]):
+        # print(x[i])
+        x_bi[i] = 1 if x[i] &gt;= 0 else 0
+    return x_bi
 </code></pre>
 <p>Define LL and UL objective:</p>
 <pre><code>def val_loss(data, target, upper_model, lower_model):
     loss = F.cross_entropy(lower_model(data), target)
-    val_losses.append(tonp(loss))
     return loss
 
 def train_loss(data, target, upper_model, lower_model):
@@ -1075,7 +1088,6 @@ b_optimizer.build_ul_solver(x_opt)
             acc = accuary(out, test.clean_target)
             x_bi = Binarization(x.x.cpu().numpy())
             clean = x_bi * tr.clean
-            acc_history.append(acc)
             p = clean.mean() / (x_bi.sum() / x_bi.shape[0] + 1e-8)
             r = clean.mean() / (1. - tr.rho)
             F1_score = 2 * p * r / (p + r + 1e-8)
@@ -1084,6 +1096,10 @@ b_optimizer.build_ul_solver(x_opt)
                 dc = 1
             F1_score_last = F1_score
             valLoss = F.cross_entropy(out, test.clean_target)
+            print('x_itr={},acc={:.3f},p={:.3f}.r={:.3f},F1 score={:.3f},val_loss={:.3f}'.format(x_itr,
+                                                                             100 * accuary(out,
+                                                                                           test.clean_target),
+                                                                             100 * p, 100 * r, 100 * F1_score,valLoss))
 </code></pre>
 <hr />
 <h2 id="gan">GAN</h2>
