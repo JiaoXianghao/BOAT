@@ -1,5 +1,5 @@
 
-# BOHML - A Refactored Bilevel Optimization Toolbox for Hierarchical Machine Learning
+# BOAT - Problem Adaptive Operation Toolbox for Gradient based Bi-Level Optimization
 [![PyPI version](https://badge.fury.io/py/boml.svg)](https://badge.fury.io/py/boml)
 [![tests](https://github.com/JiaoXianghao/BOHML/actions/workflows/test.yml/badge.svg)](https://github.com/JiaoXianghao/BOHML/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/JiaoXianghao/BOHML/branch/main/graph/badge.svg?token=8Y3OK2WPDE)](https://codecov.io/gh/JiaoXianghao/BOHML)
